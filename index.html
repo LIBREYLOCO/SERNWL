@@ -621,9 +621,24 @@
                     </div>
                 </div>
 
-                <!-- Slides 9-11: Placeholders -->
+                <!-- Slide 9: Resumen SER al 60% (Thumbnail) -->
+                <div class="cursor-pointer group relative bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden aspect-[4/3] flex flex-col"
+                    onclick="openModal(8)">
+                    <div class="bg-[#C5A059] h-2 w-full"></div>
+                    <div
+                        class="p-2 flex-1 flex flex-col items-center justify-center bg-gray-50 group-hover:bg-white transition">
+                        <span class="text-3xl">📊</span>
+                        <span class="text-xs font-bold text-nwl-burgundy mt-2 text-center">RESUMEN</span>
+                        <span class="text-xs text-slate-400">SER AL 60%</span>
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-nwl-burgundy/0 group-hover:bg-nwl-burgundy/5 transition duration-300">
+                    </div>
+                </div>
+
+                <!-- Slides 10-11: Placeholders -->
                 <script>
-                    for (let i = 9; i <= 11; i++) {
+                    for (let i = 10; i <= 11; i++) {
                         document.write(`
                             <div class="cursor-pointer group relative bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden aspect-[4/3] flex flex-col" onclick="openModal(${i - 1})">
                                 <div class="bg-slate-200 h-2 w-full group-hover:bg-[#C5A059] transition-colors"></div>
@@ -1482,6 +1497,8 @@
                 container.innerHTML = slide6_HTML;
             } else if (currentSlideIndex === 7) {
                 container.innerHTML = slide7_HTML;
+            } else if (currentSlideIndex === 8) {
+                container.innerHTML = slide8_HTML;
             } else {
                 container.innerHTML = `
             < div class="h-[60vh] flex flex-col items-center justify-center p-12 text-center select-none" >
