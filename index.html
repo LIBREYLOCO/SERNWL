@@ -225,10 +225,15 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <!-- Chart 1: The Gap -->
-                <div class="bg-[#F9F9F7] p-6 rounded-xl border border-gray-200">
-                    <h3 class="text-lg font-bold text-nwl-burgundy mb-4 text-center">Ocupación Actual vs. Capacidad
-                        Disponible</h3>
-                    <div class="chart-container">
+                <div class="bg-[#F9F9F7] p-6 rounded-xl border border-gray-200 group hover:shadow-lg transition-all cursor-pointer"
+                    onclick="openChartModal('capacityChart')">
+                    <h3
+                        class="text-lg font-bold text-nwl-burgundy mb-4 text-center flex items-center justify-center gap-2">
+                        Ocupación Actual vs. Capacidad Disponible
+                        <span class="text-xs text-[#C5A059] opacity-0 group-hover:opacity-100 transition-opacity">🔍
+                            Ampliar</span>
+                    </h3>
+                    <div class="chart-container pointer-events-none">
                         <canvas id="capacityChart"></canvas>
                     </div>
                     <div class="mt-4 text-center text-sm text-slate-500">
@@ -238,10 +243,15 @@
                 </div>
 
                 <!-- Chart 2: Financial Logic -->
-                <div class="bg-[#F9F9F7] p-6 rounded-xl border border-gray-200">
-                    <h3 class="text-lg font-bold text-nwl-burgundy mb-4 text-center">Modelo de Recuperación de Ingresos
+                <div class="bg-[#F9F9F7] p-6 rounded-xl border border-gray-200 group hover:shadow-lg transition-all cursor-pointer"
+                    onclick="openChartModal('revenueChart')">
+                    <h3
+                        class="text-lg font-bold text-nwl-burgundy mb-4 text-center flex items-center justify-center gap-2">
+                        Modelo de Recuperación de Ingresos
+                        <span class="text-xs text-[#C5A059] opacity-0 group-hover:opacity-100 transition-opacity">🔍
+                            Ampliar</span>
                     </h3>
-                    <div class="chart-container">
+                    <div class="chart-container pointer-events-none">
                         <canvas id="revenueChart"></canvas>
                     </div>
                     <div class="mt-4 text-center text-sm text-slate-500">
@@ -501,74 +511,9 @@
             </p>
 
 
-            <!-- Slide 7: Resumen CON Programa S.E.R. (Thumbnail) -->
-            <div class="cursor-pointer group relative bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden aspect-[4/3] flex flex-col"
-                onclick="openModal(6)">
-                <div class="bg-[#C5A059] h-2 w-full"></div>
-                <div
-                    class="p-2 flex-1 flex flex-col items-center justify-center bg-gray-50 group-hover:bg-white transition">
-                    <span class="text-3xl">🚀</span>
-                    <span class="text-xs font-bold text-nwl-burgundy mt-2 text-center">RESUMEN</span>
-                    <span class="text-xs text-slate-400">CON S.E.R.</span>
-                </div>
-                <div class="absolute inset-0 bg-nwl-burgundy/0 group-hover:bg-nwl-burgundy/5 transition duration-300">
-                </div>
-            </div>
-
-            <!-- Slide 8: Programa de Integración Newland (PIN) 60% (Thumbnail) -->
-            <div class="cursor-pointer group relative bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden aspect-[4/3] flex flex-col"
-                onclick="openModal(7)">
-                <div class="bg-[#C5A059] h-2 w-full"></div>
-                <div
-                    class="p-2 flex-1 flex flex-col items-center justify-center bg-gray-50 group-hover:bg-white transition">
-                    <span class="text-3xl">🤝</span>
-                    <span class="text-xs font-bold text-nwl-burgundy mt-2 text-center">PROGRAMA</span>
-                    <span class="text-xs text-slate-400">PIN 60%</span>
-                </div>
-                <div class="absolute inset-0 bg-nwl-burgundy/0 group-hover:bg-nwl-burgundy/5 transition duration-300">
-                </div>
-            </div>
-
-            <!-- Slide 9: Resumen SER al 60% (Thumbnail) -->
-            <div class="cursor-pointer group relative bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden aspect-[4/3] flex flex-col"
-                onclick="openModal(8)">
-                <div class="bg-[#C5A059] h-2 w-full"></div>
-                <div
-                    class="p-2 flex-1 flex flex-col items-center justify-center bg-gray-50 group-hover:bg-white transition">
-                    <span class="text-3xl">📊</span>
-                    <span class="text-xs font-bold text-nwl-burgundy mt-2 text-center">RESUMEN</span>
-                    <span class="text-xs text-slate-400">SER AL 60%</span>
-                </div>
-                <div class="absolute inset-0 bg-nwl-burgundy/0 group-hover:bg-nwl-burgundy/5 transition duration-300">
-                </div>
-            </div>
-
-            <!-- Slide 10: Resumen CON Programa S.E.R. 60% (Thumbnail) -->
-            <div class="cursor-pointer group relative bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden aspect-[4/3] flex flex-col"
-                onclick="openModal(9)">
-                <div class="bg-[#C5A059] h-2 w-full"></div>
-                <div
-                    class="p-2 flex-1 flex flex-col items-center justify-center bg-gray-50 group-hover:bg-white transition">
-                    <span class="text-3xl">🧩</span>
-                    <span class="text-xs font-bold text-nwl-burgundy mt-2 text-center">RESUMEN</span>
-                    <span class="text-xs text-slate-400">CON S.E.R. 60%</span>
-                </div>
-                <div class="absolute inset-0 bg-nwl-burgundy/0 group-hover:bg-nwl-burgundy/5 transition duration-300">
-                </div>
-            </div>
-
-            <!-- Slide 11: Condiciones del Programa S.E.R. (Thumbnail) -->
-            <div class="cursor-pointer group relative bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden aspect-[4/3] flex flex-col"
-                onclick="openModal(10)">
-                <div class="bg-[#C5A059] h-2 w-full"></div>
-                <div
-                    class="p-2 flex-1 flex flex-col items-center justify-center bg-gray-50 group-hover:bg-white transition">
-                    <span class="text-3xl">📝</span>
-                    <span class="text-xs font-bold text-nwl-burgundy mt-2 text-center">CONDICIONES</span>
-                    <span class="text-xs text-slate-400">PROGRAMA S.E.R.</span>
-                </div>
-                <div class="absolute inset-0 bg-nwl-burgundy/0 group-hover:bg-nwl-burgundy/5 transition duration-300">
-                </div>
+            <!-- Dynamic Gallery Grid -->
+            <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Slides injected by JS -->
             </div>
         </div>
         </div>
@@ -736,244 +681,73 @@
             }, 1000);
         }
 
-        // --- Gallery Logic ---
-        let currentSlideIndex = 0;
-        const totalSlides = 11;
 
-        // Slide Data Definition
-        // Slide 0: Matrícula S:E:R Table - Recreated from User Image
-        const slide0_HTML = `
-            <div class="p-4 md:p-12">
-                <div class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-[#C5A059]/30 pb-4">
-                    <h2 class="text-3xl md:text-5xl text-nwl-burgundy serif-font">MATRÍCULA <span class="text-[#C5A059]">S:E:R</span></h2>
-                    <span class="text-slate-500 font-light text-xl">2025-26</span>
-                </div>
-                
-                <div class="overflow-x-auto shadow-sm rounded-lg border border-gray-100">
-                    <table class="w-full text-sm text-center border-collapse">
-                        <thead>
-                            <tr class="bg-[#A49E8D] text-white uppercase text-xs tracking-wider">
-                                <th class="p-3 text-left w-1/4">Alumnos</th>
-                                <th class="p-3">2025-26<br>Matrícula</th>
-                                <th class="p-3">Alumnos Ciclo</th>
-                                <th class="p-3">2025-26<br>Espacios sin Costo</th>
-                                <th class="p-3">2026-27<br>Espacios sin Costo</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-slate-700 divide-y divide-gray-200 bg-white">
-                            <!-- Helper to generate rows based on image data -->
-                           ${[
-                ['MATERNAL', '', 6, 9, ''],
-                ['KINDER 1', '', 19, 6, 20],
-                ['KINDER 2', '', 24, 1, 10], // Note: Image shows blank for matricula col
-                ['KINDER 3', '', 12, 13, 6],
-                ['PRIMERO PRIMARIA', '', 15, 10, 15],
-                ['SEGUNDO PRIMARIA', '', 21, 4, 13],
-                ['TERCERO PRIMARIA', '', 20, 5, 8],
-                ['CUARTO PRIMARIA', '', 12, 13, 9],
-                ['QUINTO PRIMARIA', '', 10, 15, 15],
-                ['SEXTO PRIMARIA', '', 19, 6, 17],
-                ['PRIMERO SECUNDARIA', '', 17, 8, 10],
-                ['SEGUNDO SECUNDARIA', '', 28, 0, 11],
-                ['TERCERO SECUNDARIA', '', 26, 0, 3],
-                ['PRIMERO PREPARATORIA', '', 12, 13, 4],
-                ['SEGUNDO PREPARATORIA', '', 0, '', 15], // Greyed out in original?
-                ['TERCERO PREPARATORIA', '', 0, '', ''],
-            ].map((row, i) => {
-                // Alternating rows
-                const bgClass = (i % 2 === 0) ? 'bg-[#F9F9F7]' : 'bg-white';
-                const isPrep = row[0].includes('PREPARATORIA');
-
-                return `
-                                <tr class="${bgClass} hover:bg-[#C5A059]/10 transition duration-150">
-                                    <td class="p-2 text-left font-bold text-nwl-burgundy border-r border-gray-100 pl-4">${row[0]}</td>
-                                    <td class="p-2 border-r border-gray-100 bg-opacity-50"></td> <!-- Empty column in source -->
-                                    <td class="p-2 text-blue-600 font-bold border-r border-gray-100 text-lg">${row[2]}</td>
-                                    <td class="p-2 border-r border-gray-100">${row[3] !== '' ? row[3] : '<span class="inline-block w-full h-1 bg-gray-200/50"></span>'}</td>
-                                    <td class="p-2">${row[4] !== '' ? row[4] : '<span class="inline-block w-full h-1 bg-gray-200/50"></span>'}</td>
-                                </tr>`;
-                <script>
-        // --- Data Definitions ---
-
-                    // Slide 1: Matrícula Actual
-                    const slide1_HTML = `
-                    <div class="p-4 md:p-6 text-[10px] md:text-xs">
-                        <div class="flex flex-col md:flex-row justify-between items-end mb-4 border-b border-[#C5A059]/30 pb-2">
-                            <h2 class="text-xl md:text-3xl text-nwl-burgundy serif-font">MATRÍCULA <span class="text-[#C5A059]">S.E.R.</span></h2>
-                            <div class="text-right">
-                                <span class="text-slate-500 font-light text-lg">Actual</span>
-                            </div>
+                    // Slide 0: Matrícula S:E:R
+                    const slide0_HTML = `
+                    <div class="p-4 md:p-12">
+                        <div class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-[#C5A059]/30 pb-4">
+                            <h2 class="text-3xl md:text-5xl text-nwl-burgundy serif-font">MATRÍCULA <span class="text-[#C5A059]">S:E:R</span></h2>
+                            <span class="text-slate-500 font-light text-xl">2025-26</span>
                         </div>
-                        <div class="overflow-x-auto shadow-sm rounded-lg border border-gray-100 mb-6">
-                            <table class="w-full text-center border-collapse whitespace-nowrap">
+                        <div class="overflow-x-auto shadow-sm rounded-lg border border-gray-100">
+                            <table class="w-full text-sm text-center border-collapse">
                                 <thead>
-                                    <tr class="bg-[#A49E8D] text-white uppercase tracking-wider text-[8px]">
-                                        <th class="p-2 text-left pl-4 rounded-tl-lg">Nivel / Grado</th>
-                                        <th class="p-2">SER Newland</th>
-                                        <th class="p-2 bg-blue-600/20 text-blue-800">Newland</th>
-                                        <th class="p-2">Externos</th>
-                                        <th class="p-2 rounded-tr-lg">Total</th>
+                                    <tr class="bg-[#A49E8D] text-white uppercase text-xs tracking-wider">
+                                        <th class="p-3 text-left w-1/4">Alumnos</th>
+                                        <th class="p-3">2025-26<br>Matrícula</th>
+                                        <th class="p-3">Alumnos Ciclo</th>
+                                        <th class="p-3">2025-26<br>Espacios sin Costo</th>
+                                        <th class="p-3">2026-27<br>Espacios sin Costo</th>
                                     </tr>
                                 </thead>
-                                <tbody class="divide-y divide-gray-100 text-slate-600 font-medium">
-                                    ${[
-                                        ['PREESCOLAR', '', '43', '', '43'],
-                                        ['PRIMARIA', '', '160', '', '160'],
-                                        ['SECUNDARIA', '', '90', '', '90'],
-                                        ['PREPARATORIA', '87', '72', '49', '208'],
-                                    ].map(row => {
-                                        const isPrep = row[0].includes('PREPARATORIA');
-                                        const bgClass = isPrep ? 'bg-[#C5A059]/10' : '';
-                                        return `
-                                <tr class="${bgClass} hover:bg-[#C5A059]/10 transition duration-150">
-                                    <td class="p-2 text-left font-bold text-nwl-burgundy border-r border-gray-100 pl-4">${row[0]}</td>
-                                    <td class="p-2 border-r border-gray-100 bg-opacity-50"></td> <!-- Empty column in source -->
-                                    <td class="p-2 text-blue-600 font-bold border-r border-gray-100 text-lg">${row[2]}</td>
-                                    <td class="p-2 border-r border-gray-100">${row[3] !== '' ? row[3] : '<span class="inline-block w-full h-1 bg-gray-200/50"></span>'}</td>
-                                    <td class="p-2">${row[4] !== '' ? row[4] : '<span class="inline-block w-full h-1 bg-gray-200/50"></span>'}</td>
-                                </tr>`;
-                                    }).join('')}
-
-                                    <!-- Totals Row -->
-                                    <tr class="bg-nwl-burgundy text-white font-bold border-t-4 border-[#C5A059]">
-                                        <td class="p-4 text-left pl-4">TOTALES</td>
-                                        <td class="p-4"></td>
-                                        <td class="p-4 text-xl">241</td>
-                                        <td class="p-4 text-xl">103</td>
-                                        <td class="p-4 text-xl">157</td>
-                                    </tr>
+                                <tbody class="text-slate-700 divide-y divide-gray-200 bg-white">
+                                    <tr><td class="p-4" colspan="5">Detalles de Matrícula (Datos Pendientes)</td></tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                     `;
 
-                    // Slide 2: Programa S.E.R. (Aprobada en Presupuesto)
+
+                    // Slide 1 (Index 1): Presupuesto Global 2025-26
+                    const slide1_HTML = `
+                    <div class="p-4 md:p-6 text-[10px] md:text-xs">
+                        <div class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-[#C5A059]/30 pb-2">
+                            <h2 class="text-xl md:text-3xl text-nwl-burgundy serif-font">PRESUPUESTO <span class="text-[#C5A059]">Global</span></h2>
+                            <span class="text-slate-500 font-light text-lg">2025-26</span>
+                        </div>
+                        <div class="h-64 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-200">
+                            <p class="text-slate-400">Datos pendientes de cargar.</p>
+                        </div>
+                    </div>
+                    `;
+
+                    // Slide 2 (Index 2): Programa S.E.R.
                     const slide2_HTML = `
                     <div class="p-4 md:p-6 text-[10px] md:text-xs">
                         <div class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-[#C5A059]/30 pb-2">
-                            <h2 class="text-xl md:text-3xl text-nwl-burgundy serif-font">APROBADA EN <span class="text-[#C5A059]">Presupuesto</span></h2>
+                            <h2 class="text-xl md:text-3xl text-nwl-burgundy serif-font">Programa <span class="text-[#C5A059]">S.E.R.</span></h2>
                         </div>
-
-                        <!--Main Analysis Table-->
-                        <div class="overflow-x-auto shadow-sm rounded-lg border border-gray-100 mb-6">
-                            <table class="w-full text-center border-collapse whitespace-nowrap">
-                                <thead>
-                                    <tr class="bg-[#A49E8D] text-white uppercase tracking-wider text-[8px]">
-                                        <th class="p-2 text-left pl-4 rounded-tl-lg">Concepto</th>
-                                        <th class="p-2">Alumnos</th>
-                                        <th class="p-2">Inscripción</th>
-                                        <th class="p-2">Colegiatura Anual</th>
-                                        <th class="p-2">Total</th>
-                                        <th class="p-2 rounded-tr-lg">Ingreso Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="divide-y divide-gray-100 text-slate-600 font-medium text-[9px]">
-                                    ${[
-                                        ['PREPARATORIA MATUTINA 100%', '82', '$13,260', '$89,148', '$102,408', '$8,397,456'],
-                                        ['PREPARATORIA MATUTINA 50%', '16', '$13,260', '$44,574', '$57,834', '$925,344'],
-                                        ['PREPARATORIA VESPERTINA 100%', '82', '$13,260', '$89,148', '$102,408', '$8,397,456'],
-                                        ['PREPARATORIA VESPERTINA 50%', '37', '$13,260', '$44,574', '$57,834', '$2,139,858'],
-                                    ].map(row => `
-                                <tr class="hover:bg-gray-50 transition">
-                                    <td class="p-2 text-left font-bold text-nwl-burgundy border-r border-gray-100 pl-4">${row[0]}</td>
-                                    <td class="p-2 border-r border-gray-100">${row[1]}</td>
-                                    <td class="p-2 border-r border-gray-100">${row[2]}</td>
-                                    <td class="p-2 border-r border-gray-100">${row[3]}</td>
-                                    <td class="p-2 border-r border-gray-100 font-bold text-[#C5A059]">${row[4]}</td>
-                                    <td class="p-2 font-bold text-green-700">${row[5]}</td>
-                                </tr>
-                            `).join('')}
-                                    <tr class="bg-[#A49E8D]/10 font-bold border-t border-gray-300">
-                                        <td class="p-2 text-left text-nwl-burgundy">SUBTOTAL</td>
-                                        <td class="p-2">217</td>
-                                        <td class="p-2"></td>
-                                        <td class="p-2"></td>
-                                        <td class="p-2"></td>
-                                        <td class="p-2 text-lg text-nwl-burgundy">$19,860,114</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <!-- Summary Cards -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                                <h4 class="font-bold text-nwl-burgundy mb-2 border-b border-gray-200 pb-1">Descuentos</h4>
-                                <div class="flex justify-between text-xs mb-1">
-                                    <span>Descuento 4% Pago Anual (30 Alumnos)</span>
-                                    <span class="text-red-500 font-medium">-$106,978</span>
-                                </div>
-                                <div class="flex justify-between text-xs font-bold border-t border-gray-300 pt-1 mt-1">
-                                    <span>TOTAL INGRESOS NETOS</span>
-                                    <span class="text-green-700 text-sm">$19,753,136</span>
-                                </div>
-                            </div>
-                            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                                <h4 class="font-bold text-nwl-burgundy mb-2 border-b border-gray-200 pb-1">Costo Operativo</h4>
-                                <div class="flex justify-between text-xs mb-1">
-                                    <span>Nómina y Operación (35%)</span>
-                                    <span class="text-slate-600 font-medium">$6,913,598</span>
-                                </div>
-                                <div class="flex justify-between text-xs font-bold border-t border-gray-300 pt-1 mt-1">
-                                    <span>UTILIDAD BRUTA</span>
-                                    <span class="text-[#C5A059] text-sm">$12,839,538</span>
-                                </div>
-                            </div>
+                        <div class="h-64 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-200">
+                            <p class="text-slate-400">Datos pendientes de cargar.</p>
                         </div>
                     </div>
                     `;
 
-                    // Slide 3: Presupuesto 2025-26 Detail
+                    // Slide 3 (Index 3): Resumen Global
                     const slide3_HTML = `
                     <div class="p-4 md:p-6 text-[10px] md:text-xs">
                         <div class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-[#C5A059]/30 pb-2">
-                            <h2 class="text-xl md:text-3xl text-nwl-burgundy serif-font">PRESUPUESTO <span class="text-[#C5A059]">2025-26</span></h2>
-                            <div class="text-right">
-                                <span class="text-slate-500 font-light text-lg">Proyección</span>
-                            </div>
+                            <h2 class="text-xl md:text-3xl text-nwl-burgundy serif-font">Programa <span class="text-[#C5A059]">S.E.R.</span></h2>
+                            <span class="text-slate-500 font-light text-lg">Resumen Global</span>
                         </div>
-
-                        <div class="overflow-x-auto shadow-sm rounded-lg border border-gray-100 mb-6">
-                            <table class="w-full text-center border-collapse whitespace-nowrap">
-                                <thead>
-                                    <tr class="bg-[#A49E8D] text-white uppercase tracking-wider text-[8px]">
-                                        <th class="p-2 text-left pl-4 rounded-tl-lg">Concepto</th>
-                                        <th class="p-2">Ingresos</th>
-                                        <th class="p-2">Egresos</th>
-                                        <th class="p-2">Utilidad</th>
-                                        <th class="p-2 rounded-tr-lg">%</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="divide-y divide-gray-100 text-slate-600 font-medium text-[9px]">
-                                    ${[
-                                        ['INSCRIPCIONES', '$4,354,180', '', '$4,354,180', ''],
-                                        ['COLEGIATURAS', '$28,875,742', '', '$28,875,742', ''],
-                                        ['OTROS INGRESOS', '', '', '', ''],
-                                    ].map((row, i) => `
-                                <tr class="hover:bg-gray-50 transition">
-                                    <td class="p-2 text-left font-bold text-nwl-burgundy border-r border-gray-100 pl-4">${row[0]}</td>
-                                    <td class="p-2 border-r border-gray-100 text-green-700">${row[1]}</td>
-                                    <td class="p-2 border-r border-gray-100 text-red-500">${row[2]}</td>
-                                    <td class="p-2 border-r border-gray-100 font-bold">${row[3]}</td>
-                                    <td class="p-2 bg-gray-50"></td>
-                                </tr>
-                            `).join('')}
-                                    <tr class="bg-gray-300 font-bold border-t border-gray-400">
-                                        <td class="p-2 text-left">TOTAL</td>
-                                        <td class="p-2">$33,229,922</td>
-                                        <td class="p-2">$8,994,851</td>
-                                        <td class="p-2">$24,235,070</td>
-                                        <td class="p-2"></td>
-                                        <td class="p-2"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="h-64 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-200">
+                            <p class="text-slate-400">Datos pendientes de cargar.</p>
                         </div>
                     </div>
                     `;
 
-                    // Slide 4: Egreso Presupuesto 2025-26
+                    // Slide 4 (Index 4): Egreso Presupuesto
                     const slide4_HTML = `
                     <div class="p-4 md:p-6 text-[10px] md:text-xs">
                         <div class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-[#C5A059]/30 pb-2">
@@ -982,178 +756,13 @@
                                 <span class="text-slate-500 font-light text-lg">2025-26</span>
                             </div>
                         </div>
-
-                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                            <!-- Main Expense Tables (Left Column - Span 2) -->
-                            <div class="lg:col-span-2 space-y-6">
-
-                                <!-- Table 1: Egreso Controlado -->
-                                <div class="border border-gray-200 rounded-lg overflow-hidden">
-                                    <div class="bg-[#A49E8D] text-white p-2 font-bold px-4 flex justify-between items-center">
-                                        <span>EGRESO CONTROLADO</span>
-                                        <span class="text-[9px] opacity-75">QUICKBOOKS vs PRESUPUESTO</span>
-                                    </div>
-                                    <table class="w-full text-center text-slate-600">
-                                        <thead class="bg-gray-50 text-[9px] font-bold text-slate-500 border-b border-gray-200">
-                                            <tr>
-                                                <th class="p-2 text-left">CONCEPTO</th>
-                                                <th class="p-2">2024-2025</th>
-                                                <th class="p-2 text-nwl-burgundy">PRESUPUESTADO</th>
-                                                <th class="p-2">DIFERENCIA</th>
-                                                <th class="p-2">VAR %</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="divide-y divide-gray-100 bg-white">
-                                            ${[
-                                                ['CONTROLADO:1.1. CAPACITACION', '$0.00', '$30,000.00', '$30,000.00', '-'],
-                                                ['CONTROLADO:1.2. CORTESIAS Y EVENTOS', '$4,465.57', '$20,000.00', '$15,534.43', '77.7%'],
-                                                ['CONTROLADO:1.3. EVENTOS ESPECIALES', '$390,162.26', '$446,250.00', '$56,087.75', '12.6%'],
-                                                ['CONTROLADO:1.4. IMPRESOS INTERNOS', '$90,321.96', '$120,000.00', '$29,678.04', '24.7%'],
-                                                ['CONTROLADO:1.5 MATERIALES', '$13,881.12', '$0.00', '-$13,881.12', '-'],
-                                                ['CONTROLADO:1.6 OPERACION', '$1,699,598.30', '$1,818,048.00', '$118,449.70', '6.5%'],
-                                                ['CONTROLADO:1.7 OTROS GASTOS GENERALES', '$135,946.96', '$108,216.00', '-$27,730.96', '-25.6%'],
-                                                ['CONTROLADO:1.8 UNIFORMES', '$89,126.52', '$75,000.00', '-$14,126.52', '-18.8%'],
-                                                ['PREPARATORIA', '$0.00', '$362,340.00', '$362,340.00', '100.0%'],
-                                            ].map(row => `
-                                        <tr class="hover:bg-gray-50 transition">
-                                            <td class="p-1 text-left font-medium truncate max-w-[150px]">${row[0]}</td>
-                                            <td class="p-1 text-gray-400">${row[1]}</td>
-                                            <td class="p-1 font-bold text-nwl-burgundy">${row[2]}</td>
-                                            <td class="p-1 ${row[3].startsWith('-') ? 'text-red-500' : 'text-green-600'}">${row[3]}</td>
-                                            <td class="p-1 text-[9px] bg-gray-50">${row[4]}</td>
-                                        </tr>
-                                    `).join('')}
-                                            <tr class="bg-[#A49E8D]/20 font-bold border-t border-gray-300">
-                                                <td class="p-2 text-left text-nwl-burgundy">TOTAL CONTROLADO</td>
-                                                <td class="p-2">$2,423,502.69</td>
-                                                <td class="p-2">$2,979,854.00</td>
-                                                <td class="p-2">$556,351.32</td>
-                                                <td class="p-2">18.7%</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                <!-- Table 2: Egresos Fijos -->
-                                <div class="border border-gray-200 rounded-lg overflow-hidden">
-                                    <div class="bg-[#A49E8D] text-white p-2 font-bold px-4">EGRESO FIJOS</div>
-                                    <table class="w-full text-center text-slate-600">
-                                        <tbody class="divide-y divide-gray-100 bg-white">
-                                            ${[
-                                                ['CAPACITACIÓN FPN', '$70,513.16', '$0.00', '-$70,513.16', '-'],
-                                                ['CAPACITACIÓN DIRECCIONES', '$0.00', '$30,000.00', '$30,000.00', '100%'],
-                                                ['FEDEP APOYO LEGAL ESCUELAS', '$48,921.98', '$51,419.85', '$2,497.87', '4.9%'],
-                                                ['NOM 035', '$0.00', '$30,000.00', '$30,000.00', '100%'],
-                                                ['ARRENDAMIENTO CANCHA DE BASKET', '$0.00', '$120,000.00', '$120,000.00', '100%'],
-                                                ['PUBLICIDAD', '$246,912.72', '$322,000.00', '$75,087.28', '23.3%'],
-                                                ['SEGURIDAD', '$630,712.89', '$684,020.04', '$53,307.15', '7.8%'],
-                                                ['SERVICIOS CONTABLES', '$291,914.00', '$308,826.80', '$16,912.80', '5.5%'],
-                                                ['ZOOM', '$7,800.00', '$10,000.00', '$2,200.00', '22.0%'],
-                                            ].map(row => `
-                                        <tr class="hover:bg-gray-50 transition">
-                                            <td class="p-1 text-left font-medium truncate max-w-[150px]">${row[0]}</td>
-                                            <td class="p-1 text-gray-400">${row[1]}</td>
-                                            <td class="p-1 font-bold text-nwl-burgundy">${row[2]}</td>
-                                            <td class="p-1 ${row[3].startsWith('-') ? 'text-red-500' : 'text-green-600'}">${row[3]}</td>
-                                            <td class="p-1 text-[9px] bg-gray-50">${row[4]}</td>
-                                        </tr>
-                                    `).join('')}
-                                            <tr class="bg-[#A49E8D]/20 font-bold border-t border-gray-300">
-                                                <td class="p-2 text-left text-nwl-burgundy">TOTAL FIJOS</td>
-                                                <td class="p-2">$1,296,774.75</td>
-                                                <td class="p-2">$1,556,266.69</td>
-                                                <td class="p-2">$259,491.94</td>
-                                                <td class="p-2">16.7%</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                <!-- Table 3: Gasto Financiero -->
-                                <div class="border border-gray-200 rounded-lg overflow-hidden">
-                                    <div class="bg-[#A49E8D] text-white p-2 font-bold px-4">GASTO FINANCIERO</div>
-                                    <table class="w-full text-center text-slate-600">
-                                        <tbody class="divide-y divide-gray-100 bg-white">
-                                            ${[
-                                                ['COMISIONES BANCARIAS', '$130,801.56', '$139,400.00', '$8,598.44', '6.2%'],
-                                                ['IMPUESTOS', '$377,123.00', '$414,000.00', '$36,877.00', '8.9%'],
-                                                ['ARRENDAMIENTO CAMIÓN', '$502,285.48', '$537,285.48', '$35,000.00', '6.5%'],
-                                            ].map(row => `
-                                        <tr class="hover:bg-gray-50 transition">
-                                            <td class="p-1 text-left font-medium truncate max-w-[150px]">${row[0]}</td>
-                                            <td class="p-1 text-gray-400">${row[1]}</td>
-                                            <td class="p-1 font-bold text-nwl-burgundy">${row[2]}</td>
-                                            <td class="p-1 ${row[3].startsWith('-') ? 'text-red-500' : 'text-green-600'}">${row[3]}</td>
-                                            <td class="p-1 text-[9px] bg-gray-50">${row[4]}</td>
-                                        </tr>
-                                    `).join('')}
-                                            <tr class="bg-[#A49E8D]/20 font-bold border-t border-gray-300">
-                                                <td class="p-2 text-left text-nwl-burgundy">TOTAL FINANCIEROS</td>
-                                                <td class="p-2">$1,010,210.04</td>
-                                                <td class="p-2">$1,090,685.48</td>
-                                                <td class="p-2">$45,475.44</td>
-                                                <td class="p-2">4.2%</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                            </div>
-
-                            <!-- Right Column: Summary & Concepts -->
-                            <div class="space-y-6">
-                                <!-- Concepts Details -->
-                                <div class="bg-gray-50 p-4 rounded-lg border border-gray-100 text-xs">
-                                    <h4 class="font-bold text-nwl-burgundy mb-3 border-b border-gray-200 pb-2">CONCEPTOS NÓMINA</h4>
-                                    <ul class="space-y-2 text-slate-600">
-                                        <li class="flex justify-between"><span>AGUINALDO</span> <span class="font-medium">$327,058.97</span></li>
-                                        <li class="flex justify-between"><span>FONDO FINIQUITOS</span> <span class="font-medium">$300,000.00</span></li>
-                                        <li class="flex justify-between"><span>HONORARIOS</span> <span class="font-medium">$443,200.00</span></li>
-                                        <li class="flex justify-between"><span>IMPUESTO ESTATAL</span> <span class="font-medium">$215,016.91</span></li>
-                                        <li class="flex justify-between"><span>IMSS</span> <span class="font-medium">$1,503,876.60</span></li>
-                                        <li class="flex justify-between"><span>INFONAVIT</span> <span class="font-medium">$1,284,459.24</span></li>
-                                        <li class="flex justify-between"><span>ISR NÓMINA</span> <span class="font-medium">$780,321.36</span></li>
-                                        <li class="flex justify-between font-bold text-nwl-burgundy bg-white p-1 rounded"><span>NÓMINA CAMPUS</span> <span>$6,438,843.75</span></li>
-                                        <li class="flex justify-between"><span>ASIMILADOS</span> <span class="font-medium">$572,166.85</span></li>
-                                        <li class="flex justify-between"><span>SINDICATO</span> <span class="font-medium">$25,000.00</span></li>
-                                        <li class="flex justify-between"><span>PRIMA VACACIONAL</span> <span class="font-medium">$81,192.19</span></li>
-                                        <li class="flex justify-between border-t border-gray-200 pt-2 font-bold text-lg"><span>TOTAL NÓMINA</span> <span>$11,971,140.87</span></li>
-                                    </ul>
-                                </div>
-
-                                <!-- Grand Summary Card -->
-                                <div class="bg-nwl-burgundy text-white p-6 rounded-lg shadow-lg">
-                                    <h3 class="text-xl serif-font font-bold mb-4 text-[#C5A059]">RESUMEN GASTOS</h3>
-                                    <div class="space-y-3 text-sm">
-                                        <div class="flex justify-between items-center">
-                                            <span class="opacity-80">CONTROLADOS</span>
-                                            <span class="font-mono font-bold">$2,979,854.00</span>
-                                        </div>
-                                        <div class="flex justify-between items-center">
-                                            <span class="opacity-80">FIJOS</span>
-                                            <span class="font-mono font-bold">$1,556,266.69</span>
-                                        </div>
-                                        <div class="flex justify-between items-center">
-                                            <span class="opacity-80">FINANCIERO</span>
-                                            <span class="font-mono font-bold">$1,090,685.48</span>
-                                        </div>
-                                        <div class="flex justify-between items-center">
-                                            <span class="opacity-80">NÓMINAS</span>
-                                            <span class="font-mono font-bold">$11,971,140.87</span>
-                                        </div>
-                                        <div class="h-px bg-[#C5A059]/50 my-2"></div>
-                                        <div class="flex justify-between items-center text-lg font-bold text-[#C5A059]">
-                                            <span>TOTAL EGRESOS</span>
-                                            <span>$17,597,947.04</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="h-64 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-200">
+                            <p class="text-slate-400">Datos pendientes de cargar.</p>
                         </div>
                     </div>
                     `;
 
-                    // Slide 5 (Index 4): Resumen 2025-26
+                    // Slide 5 (Index 5): Resumen 2025-26
                     const slide5_HTML = `
                     <div class="p-4 md:p-6 text-[10px] md:text-xs">
                         <div class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-[#C5A059]/30 pb-2">
@@ -1164,7 +773,6 @@
                         </div>
                     </div>
                     `;
-
                     // Slide 6 (Index 5): Resumen CON S.E.R.
                     const slide6_HTML = `
                     <div class="p-4 md:p-6 text-[10px] md:text-xs">
@@ -1215,37 +823,49 @@
 
                     // Slide 11 (Index 10): Condiciones del Programa S.E.R.
                     const slide10_HTML = `
-                    <div class="p-4 md:p-6 text-[10px] md:text-xs">
-                        <div class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-[#C5A059]/30 pb-2">
-                            <h2 class="text-xl md:text-3xl text-nwl-burgundy serif-font">CONDICIONES <span class="text-[#C5A059]">Programa S.E.R.</span></h2>
+                    <div class="p-4 md:p-8 text-xs md:text-sm">
+                        <div class="flex flex-col md:flex-row justify-between items-end mb-8 border-b border-[#C5A059]/30 pb-4">
+                            <h2 class="text-2xl md:text-4xl text-nwl-burgundy serif-font uppercase">
+                                Condiciones <span class="text-[#C5A059]">del Programa S.E.R.</span></h2>
                         </div>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="bg-gray-50 p-6 rounded-lg border border-gray-100">
-                                <h4 class="font-bold text-nwl-burgundy mb-4 text-sm uppercase">Obligaciones (S)</h4>
-                                <ul class="space-y-3 text-slate-600 list-disc pl-4 text-xs">
-                                    <li>Ser Alumno Regular con promedio mínimo de 8.5.</li>
-                                    <li>No reprobar ni tener adeudo de materias.</li>
-                                    <li>Asistencia mínima de 90%.</li>
-                                    <li>Cumplir con el reglamento de conducta de la institución.</li>
-                                    <li>Participar en actividades de la comunidad S.E.R.</li>
-                                </ul>
-                            </div>
-                            <div class="bg-nwl-burgundy text-white p-6 rounded-lg shadow-md">
-                                <h4 class="font-bold text-[#C5A059] mb-4 text-sm uppercase">Beneficios (E-R)</h4>
-                                <ul class="space-y-3 text-gray-200 list-disc pl-4 text-xs">
-                                    <li>Beca del <span class="text-[#C5A059] font-bold">10% al 30%</span> en colegiatura.</li>
-                                    <li>Acceso preferencial a eventos exclusivos.</li>
-                                    <li>Reconocimiento especial en graduación.</li>
-                                    <li>Networking con red de egresados exitosos.</li>
-                                </ul>
-                            </div>
+                        <div class="max-w-4xl mx-auto bg-gray-50 rounded-xl p-6 md:p-10 border border-gray-100 shadow-sm">
+                            <ol class="space-y-6 text-slate-700">
+                                <li class="flex gap-4">
+                                    <span class="flex-shrink-0 w-8 h-8 rounded-full bg-[#C5A059] text-white flex items-center justify-center font-bold font-serif">1</span>
+                                    <div class="pt-1">
+                                        <p class="font-bold text-nwl-burgundy uppercase">APLICA EL DESCUENTO SOLO COMO PRONTO PAGO</p>
+                                        <p class="text-slate-500 mt-1">SIN NINGÚN DESCUENTO ADICIONAL.</p>
+                                    </div>
+                                </li>
+                                <li class="flex gap-4">
+                                    <span class="flex-shrink-0 w-8 h-8 rounded-full bg-[#C5A059] text-white flex items-center justify-center font-bold font-serif">2</span>
+                                    <div class="pt-1">
+                                        <p class="font-bold text-nwl-burgundy uppercase">NO APLICAN BECAS ADICIONALES</p>
+                                        <p class="text-slate-500 mt-1">(SE TENDRÁ QUE ELEGIR LO QUE MÁS LE CONVENGA).</p>
+                                    </div>
+                                </li>
+                                <li class="flex gap-4">
+                                    <span class="flex-shrink-0 w-8 h-8 rounded-full bg-[#C5A059] text-white flex items-center justify-center font-bold font-serif">3</span>
+                                    <div class="pt-1">
+                                        <p class="font-bold text-nwl-burgundy uppercase">CONDICIÓN DE REFERIDO</p>
+                                        <p class="text-slate-500 mt-1">SI EL ALUMNO REFERIDO ENTRA EN MORA O SALE DEL COLEGIO, EL DESCUENTO DEL 10% DEL REFERIDO NO APLICA.</p>
+                                    </div>
+                                </li>
+                                <li class="flex gap-4">
+                                    <span class="flex-shrink-0 w-8 h-8 rounded-full bg-[#C5A059] text-white flex items-center justify-center font-bold font-serif">4</span>
+                                    <div class="pt-1">
+                                        <p class="font-bold text-nwl-burgundy uppercase">CAPACIDADES ESPECÍFICAS</p>
+                                        <p class="text-slate-500 mt-1">SOLO APLICA A CAPACIDADES ESPECÍFICAS. <br> <span class="italic text-[#C5A059]">EJEMPLO: CORREGIDORA 100 PLAZAS.</span></p>
+                                    </div>
+                                </li>
+                            </ol>
                         </div>
                     </div>
                     `;
 
                     // Array of all slides
                     const slides = [
+                    slide0_HTML,
                     slide1_HTML,
                     slide2_HTML,
                     slide3_HTML,
@@ -1255,7 +875,6 @@
                     slide7_HTML,
                     slide8_HTML,
                     slide9_HTML,
-                    slide9_HTML, // Placeholder for index 9 if needed, or slide10? Let's assume indices match. User had 11 slides logic before.
                     slide10_HTML
                     ];
 
@@ -1307,7 +926,32 @@
                     function closeModal() {
                         document.getElementById('galleryModal').classList.add('hidden');
                     document.body.style.overflow = 'auto';
-        }
+                        // Clean up modal content to avoid duplicates or wrong sizing next time
+                        setTimeout(() => {
+                            const modalContent = document.getElementById('modalContent');
+                    if (modalContent) modalContent.innerHTML = '';
+                        }, 300);
+                    }
+
+                    function openChartModal(canvasId) {
+                        const canvas = document.getElementById(canvasId);
+                    if (!canvas) return;
+
+                    const imgUrl = canvas.toDataURL('image/png');
+                    const container = document.getElementById('modalContent');
+
+                    container.innerHTML = `
+                    <div class="p-4 md:p-8 flex flex-col items-center justify-center h-full">
+                        <h3 class="text-2xl font-bold text-nwl-burgundy mb-6 serif-font">Vista Ampliada</h3>
+                        <div class="bg-white p-4 rounded-xl shadow-lg border border-gray-100 max-w-4xl w-full">
+                            <img src="${imgUrl}" alt="Gráfica Ampliada" class="w-full h-auto object-contain rounded-lg">
+                        </div>
+                    </div>
+                    `;
+
+                    document.getElementById('galleryModal').classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                    }
 
                     function changeSlide(direction) {
                         currentSlideIndex += direction;
@@ -1337,6 +981,57 @@
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
                         renderGrid();
+
+                    // Chart.js Implementations
+                    const ctx1 = document.getElementById('capacityChart').getContext('2d');
+                    new Chart(ctx1, {
+                        type: 'doughnut',
+                    data: {
+                        labels: ['Ocupados', 'Disponibles'],
+                    datasets: [{
+                        data: [350, 103],
+                    backgroundColor: ['#E2E8F0', '#C5A059'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                    }]
+                },
+                    options: {
+                        responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '75%',
+                    plugins: {
+                        legend: {
+                        position: 'bottom',
+                    labels: {usePointStyle: true, font: {family: "'Lato', sans-serif" } }
+                        }
+                    }
+                }
+            });
+
+                    const ctx2 = document.getElementById('revenueChart').getContext('2d');
+                    new Chart(ctx2, {
+                        type: 'bar',
+                    data: {
+                        labels: ['Ingreso Actual', 'Potencial S.E.R.'],
+                    datasets: [{
+                        label: 'Millones MXN',
+                    data: [25.5, 31.2],
+                    backgroundColor: ['#E2E8F0', '#5D2A2C'],
+                    borderRadius: 4,
+                    }]
+                },
+                    options: {
+                        responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {beginAtZero: true, grid: {display: false } },
+                    x: {grid: {display: false } }
+                    },
+                    plugins: {
+                        legend: {display: false }
+                    }
+                }
+            });
         });
 
                     // Keyboard Navigation
@@ -1349,845 +1044,6 @@
         });
 
     </script>
-    <span class="text-slate-500 font-light text-lg">2025-26</span>
-    </div>
-
-    <!-- Main Table -->
-    <div class="overflow-x-auto shadow-sm rounded-lg border border-gray-100 mb-6">
-        <table class="w-full text-center border-collapse whitespace-nowrap">
-            <thead>
-                <tr class="bg-[#A49E8D]/80 text-white uppercase tracking-wider">
-                    <th class="p-1 border-r border-white/20"></th>
-                    <th colspan="5" class="p-1 border-r border-white/20 text-[#5D2A2C] font-bold bg-[#A49E8D]">INGRESOS
-                    </th>
-                    <th colspan="5" class="p-1 border-r border-white/20 text-[#5D2A2C] font-bold bg-[#C5A059]/50">
-                        INGRESOS CON DESCUENTO</th>
-                    <th colspan="2" class="p-1 bg-[#A49E8D]"></th>
-                </tr>
-                <tr class="bg-[#A49E8D] text-white font-normal text-[9px]">
-                    <th class="p-2 text-left min-w-[120px]">ALUMNOS</th>
-                    <th class="p-2">COLEGIATURAS</th>
-                    <th class="p-2">REINSCRIPCIONES</th>
-                    <th class="p-2">INSCRIPCIONES</th>
-                    <th class="p-2">CUOTAS</th>
-                    <th class="p-2 font-bold bg-[#5D2A2C]/10 text-white">TOTAL<br>INGRESOS</th>
-
-                    <th class="p-2 bg-[#C5A059]/20">COLEGIATURAS</th>
-                    <th class="p-2 bg-[#C5A059]/20">REINSCRIPCIONES</th>
-                    <th class="p-2 bg-[#C5A059]/20">INSCRIPCIONES</th>
-                    <th class="p-2 bg-[#C5A059]/20">CUOTAS</th>
-                    <th class="p-2 font-bold bg-[#C5A059]/40 text-[#5D2A2C]">TOTAL INGRESO<br>CON DESCUENTO</th>
-
-                    <th class="p-2 font-bold">TOTAL<br>DESCUENTO</th>
-                    <th class="p-2">% POR GRADO</th>
-                </tr>
-            </thead>
-            <tbody class="text-slate-700 divide-y divide-gray-200 bg-white">
-                ${[
-                ['MATERNAL', '386,520', '0', '33,125', '43,545', '463,190', '240,931', '0', '28,344', '43,545',
-                '312,820', '150,370', '32.5%'],
-                ['KINDER 1', '1,262,632', '18,750', '59,625', '81,108', '1,422,115', '794,640', '16,766', '51,020',
-                '81,108', '943,533', '478,582', '33.7%'],
-                ['KINDER 2', '2,144,382', '238,032', '53,119', '148,698', '2,584,231', '1,587,854', '198,396', '36,445',
-                '148,698', '1,971,393', '612,838', '23.7%'],
-                ['KINDER 3', '1,098,342', '325,728', '26,559', '189,252', '1,639,881', '812,134', '277,004', '18,222',
-                '189,252', '1,296,612', '343,269', '20.9%'],
-                ['PRIMERO PRIMARIA', '1,735,968', '159,500', '16,907', '93,574', '2,005,949', '1,308,653', '126,702',
-                '10,862', '93,574', '1,539,790', '466,159', '23.2%'],
-                ['SEGUNDO PRIMARIA', '2,403,648', '191,400', '16,907', '93,574', '2,705,529', '1,769,894', '146,405',
-                '10,862', '93,574', '2,020,736', '684,793', '25.3%'],
-                ['TERCERO PRIMARIA', '2,292,368', '263,175', '67,628', '147,559', '2,770,730', '1,483,218', '197,324',
-                '43,447', '147,559', '1,871,548', '899,182', '32.5%'],
-                ['CUARTO PRIMARIA', '1,402,128', '247,225', '67,628', '133,163', '1,850,144', '860,148', '182,686',
-                '43,447', '133,163', '1,219,444', '630,700', '34.1%'],
-                ['QUINTO PRIMARIA', '1,246,336', '191,400', '50,721', '107,970', '1,596,427', '979,820', '154,846',
-                '32,585', '107,970', '1,275,222', '321,205', '20.1%'],
-                ['SEXTO PRIMARIA', '2,247,856', '175,450', '101,442', '122,366', '2,647,114', '1,558,330', '134,118',
-                '65,171', '122,366', '1,879,985', '767,129', '29.0%'],
-                ['PRIMERO SECUNDARIA', '2,245,516', '284,648', '159,738', '196,248', '2,886,150', '1,446,366',
-                '222,601', '98,658', '196,248', '1,963,873', '922,277', '32.0%'],
-                ['SEGUNDO SECUNDARIA', '3,528,668', '200,928', '35,497', '105,672', '3,870,765', '2,448,388', '143,051',
-                '21,924', '105,672', '2,719,035', '1,151,730', '29.8%'],
-                ['TERCERO SECUNDARIA', '3,281,908', '485,576', '88,743', '256,632', '4,112,859', '2,610,875', '375,790',
-                '54,810', '256,632', '3,298,107', '814,752', '19.8%'],
-                ['PRIMERO PREPARATORIA', '1,687,920', '502,350', '78,308', '151,146', '2,419,724', '1,310,951',
-                '425,520', '44,374', '151,146', '1,931,991', '487,732', '20.2%'],
-                ['SEGUNDO PREPARATORIA', '', '156,615', '31,323', '67,176', '255,114', '', '156,615', '17,750',
-                '67,176', '241,541', '13,573', '5.3%'],
-                ['TERCERO PREPARATORIA', '', '', '', '', '', '', '', '', '', '', '', ''],
-                ].map((row, i) => {
-                const bgClass = (i % 2 === 0) ? 'bg-[#F9F9F7]' : 'bg-white';
-                return `
-                <tr class="${bgClass} hover:bg-[#C5A059]/10 transition">
-                    <td class="p-2 text-left font-bold text-nwl-burgundy border-r whitespace-nowrap">${row[0]}</td>
-
-                    <td class="p-2 border-r text-gray-500">$${row[1]}</td>
-                    <td class="p-2 border-r text-gray-500">$${row[2]}</td>
-                    <td class="p-2 border-r text-gray-500">$${row[3]}</td>
-                    <td class="p-2 border-r text-gray-500">$${row[4]}</td>
-                    <td class="p-2 border-r font-bold bg-[#A49E8D]/10">$${row[5] || '-'}</td>
-
-                    <td class="p-2 border-r bg-[#C5A059]/5 text-nwl-burgundy">$${row[6] || '-'}</td>
-                    <td class="p-2 border-r bg-[#C5A059]/5 text-nwl-burgundy">$${row[7] || '-'}</td>
-                    <td class="p-2 border-r bg-[#C5A059]/5 text-nwl-burgundy">$${row[8] || '-'}</td>
-                    <td class="p-2 border-r bg-[#C5A059]/5 text-nwl-burgundy">$${row[9] || '-'}</td>
-                    <td class="p-2 border-r font-bold bg-[#C5A059]/10 text-nwl-burgundy">$${row[10] || '-'}</td>
-
-                    <td class="p-2 border-r font-bold text-gray-700">$${row[11] || '-'}</td>
-                    <td class="p-2 text-xs font-bold">${row[12]}</td>
-                </tr>`;
-                }).join('')}
-
-                <tr class="bg-gray-300 font-bold text-[10px] text-nwl-burgundy border-t-2 border-nwl-burgundy">
-                    <td class="p-3 text-left">TOTALES</td>
-                    <td class="p-3">$26,964,192</td>
-                    <td class="p-3">$3,440,777</td>
-                    <td class="p-3">$887,270</td>
-                    <td class="p-3">$1,937,683</td>
-                    <td class="p-3">$33,229,922</td>
-                    <td class="p-3">$19,212,202</td>
-                    <td class="p-3">$2,757,823</td>
-                    <td class="p-3">$577,922</td>
-                    <td class="p-3">$1,937,683</td>
-                    <td class="p-3">$24,485,630</td>
-                    <td class="p-3">$8,744,291</td>
-                    <td class="p-3">26.3%</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Summary Table -->
-    <div class="max-w-3xl mx-auto rounded-lg overflow-hidden border border-gray-200">
-        <div class="bg-[#A49E8D] text-white p-2 font-bold text-left px-4">PRESUPUESTO 2025-2026</div>
-        <table class="w-full text-sm text-center">
-            <thead class="bg-[#A49E8D]/50 text-nwl-burgundy text-[10px] uppercase">
-                <tr>
-                    <th class="p-2 text-left">CONCEPTO</th>
-                    <th class="p-2">BASE</th>
-                    <th class="p-2">DESCUENTO</th>
-                    <th class="p-2">A PAGAR</th>
-                    <th class="p-2">% DCTO.</th>
-                    <th class="p-2">OBSERVACIONES</th>
-                </tr>
-            </thead>
-            <tbody class="divide-y divide-gray-200 bg-white text-xs">
-                ${[
-                ['COLEGIATURAS 2025-26', '26,964,192', '7,751,990', '19,212,202', '28.7%', ''],
-                ['CUOTAS', '1,937,683', '250,560', '1,687,123', '12.9%', 'GASTO DEL INGRESO'],
-                ['INSCRIPCIONES 2026-27', '887,270', '309,348', '577,922', '34.9%', ''],
-                ['REINSCRIPCIONES 2026-27', '3,440,777', '682,954', '2,757,823', '19.8%', ''],
-                ].map(row => `
-                <tr class="hover:bg-gray-50">
-                    <td class="p-2 text-left font-bold text-slate-600">${row[0]}</td>
-                    <td class="p-2">$${row[1]}</td>
-                    <td class="p-2">$${row[2]}</td>
-                    <td class="p-2 font-bold">$${row[3]}</td>
-                    <td class="p-2 text-gray-500">${row[4]}</td>
-                    <td class="p-2 text-[9px] text-gray-400 italic">${row[5]}</td>
-                </tr>
-                `).join('')}
-                <tr class="bg-gray-300 font-bold border-t border-gray-400">
-                    <td class="p-2 text-left">TOTAL</td>
-                    <td class="p-2">$33,229,922</td>
-                    <td class="p-2">$8,994,851</td>
-                    <td class="p-2">$24,235,070</td>
-                    <td class="p-2"></td>
-                    <td class="p-2"></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    </div>
-    `;
-
-    </div>
-    `;
-
-    // Slide 2 (New): Programa S.E.R. Table
-    const slide2_HTML = `
-    < div class="p-4 md:p-6 text-[9px] md:text-[10px]">
-        <div class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-[#C5A059]/30 pb-2">
-            <h2 class="text-xl md:text-3xl text-nwl-burgundy serif-font">Programa <span
-                    class="text-[#C5A059]">S.E.R.</span></h2>
-        </div>
-
-        <!--Main Analysis Table-- >
-                <div class="overflow-x-auto shadow-sm rounded-lg border border-gray-100 mb-6">
-                    <table class="w-full text-center border-collapse whitespace-nowrap">
-                        <thead>
-                            <tr class="bg-[#A49E8D] text-white uppercase tracking-wider text-[8px]">
-                                <th class="p-1" colspan="2"></th>
-                                <th class="p-1 border-r border-white/20" colspan="3">40% COLEGIATURAS</th>
-                                <th class="p-1" colspan="4">20% INSCRIPCIONES</th>
-                            </tr>
-                             <tr class="bg-[#A49E8D]/80 text-[#5D2A2C] font-bold uppercase tracking-wider">
-                                <th class="p-2 text-left min-w-[120px]">ALUMNOS</th>
-                                <th class="p-2">MATRÍCULA<br>PROMOCIÓN</th>
-                                <th class="p-2">COLEGIATURA<br>TOTAL</th>
-                                <th class="p-2">COLEGIATURA<br>CON DESCUENTO</th>
-                                <th class="p-2 border-r border-white/20">COLEGIATURAS<br>ANUALES</th>
-                                <th class="p-2">COSTO<br>INSCRIPCIÓN</th>
-                                <th class="p-2">INSCRIPCIÓN<br>CON DESCUENTO</th>
-                                <th class="p-2">INSCRIPCIÓN<br>ANUALES</th>
-                                <th class="p-2 font-bold bg-[#5D2A2C] text-white">TOTAL<br>INGRESOS</th>
-                            </tr>
-                        </thead>
-                         <tbody class="divide-y divide-gray-100 bg-white">
-                            ${[
-                                ['MATERNAL', 9, '$6,442', '$3,865', '$347,868', '$6,625', '$5,300', '$47,700', '$395,568'],
-                                ['KINDER 1', 6, '$6,442', '$3,865', '$231,912', '$6,625', '$5,300', '$31,800', '$263,712'],
-                                ['KINDER 2', 1, '$8,717', '$5,230', '$52,302', '$13,280', '$10,624', '$13,624', '$62,926'],
-                                ['KINDER 3', 13, '$8,717', '$5,230', '$679,926', '$13,280', '$10,624', '$138,109', '$818,035'],
-                                ['PRIMERO PRIMARIA', 10, '$11,128', '$6,677', '$667,680', '$16,907', '$13,526', '$135,256', '$802,936'],
-                                ['SEGUNDO PRIMARIA', 4, '$11,128', '$6,677', '$267,072', '$16,907', '$13,526', '$54,102', '$321,174'],
-                                ['TERCERO PRIMARIA', 5, '$11,128', '$6,677', '$333,840', '$16,907', '$13,526', '$67,628', '$401,468'],
-                                ['CUARTO PRIMARIA', 13, '$11,128', '$6,677', '$867,984', '$16,907', '$13,526', '$175,833', '$1,043,817'],
-                                ['QUINTO PRIMARIA', 15, '$11,128', '$6,677', '$1,001,520', '$16,907', '$13,526', '$202,884', '$1,204,404'],
-                                ['SEXTO PRIMARIA', 6, '$11,128', '$6,677', '$400,608', '$16,907', '$13,526', '$81,154', '$481,762'],
-                                ['PRIMERO SECUNDARIA', 8, '$12,338', '$7,403', '$592,224', '$17,749', '$14,199', '$113,591', '$705,815'],
-                                ['SEGUNDO SECUNDARIA', 0, '$12,338', '$7,403', '$0', '$17,749', '$14,199', '$0', '$0'],
-                                ['TERCERO SECUNDARIA', 0, '$12,338', '$7,403', '$0', '$17,749', '$14,199', '$0', '$0'],
-                                ['PRIMERO PREPARATORIA', 13, '$14,066', '$8,440', '$1,097,148', '$15,662', '$12,529', '$162,880', '$1,260,028'],
-                                ['SEGUNDO PREPARATORIA', '', '', '', '', '', '', '', ''],
-                                ['TERCERO PREPARATORIA', '', '', '', '', '', '', '', ''],
-                            ].map((row, i) => `
-                                <tr class="${i % 2 === 0 ? 'bg-gray-50' : 'bg-white'} hover:bg-[#C5A059]/10 transition">
-                                    <td class="p-2 text-left font-bold text-nwl-burgundy">${row[0]}</td>
-                                    <td class="p-2 font-bold">${row[1]}</td>
-                                    <td class="p-2 text-gray-500">${row[2]}</td>
-                                    <td class="p-2 text-nwl-burgundy font-medium">${row[3]}</td>
-                                    <td class="p-2 border-r border-gray-100">${row[4]}</td>
-                                    <td class="p-2 text-gray-500">${row[5]}</td>
-                                    <td class="p-2 text-nwl-burgundy font-medium">${row[6]}</td>
-                                    <td class="p-2">${row[7]}</td>
-                                    <td class="p-2 font-bold bg-[#C5A059]/10 border-l border-white">${row[8]}</td>
-                                </tr>
-                            `).join('')}
-                             <tr class="bg-[#A49E8D] text-white font-bold border-t border-gray-400">
-                                <td class="p-2 text-center">TOTALES</td>
-                                <td class="p-2">103</td>
-                                <td class="p-2">$10,583<br><span class="text-[8px] font-normal">PROMEDIO</span></td>
-                                <td class="p-2">$6,350<br><span class="text-[8px] font-normal">PROMEDIO</span></td>
-                                <td class="p-2">$6,540,084<br><span class="text-[8px] font-normal">TOTAL</span></td>
-                                <td class="p-2">$15,011<br><span class="text-[8px] font-normal">PROMEDIO</span></td>
-                                <td class="p-2">$12,009<br><span class="text-[8px] font-normal">PROMEDIO</span></td>
-                                <td class="p-2">$1,221,560<br><span class="text-[8px] font-normal">TOTAL</span></td>
-                                <td class="p-2 bg-[#5D2A2C]">$7,761,644<br><span class="text-[8px] font-normal text-yellow-500">GRAN TOTAL</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!--Footer Table: Presupuesto Summary-- >
-            <div class="max-w-4xl mx-auto rounded-lg overflow-hidden border border-gray-200 mt-8">
-                <div class="bg-[#A49E8D] text-white p-2 font-bold text-left px-4">PRESUPUESTO 2025-2026</div>
-                <table class="w-full text-center text-slate-600">
-                    <thead class="bg-[#C5A059]/10 text-[9px] font-bold text-nwl-burgundy uppercase">
-                        <tr>
-                            <th class="p-2 text-left">CONCEPTO</th>
-                            <th class="p-2">BASE</th>
-                            <th class="p-2">DESCUENTO</th>
-                            <th class="p-2">DIFERENCIA</th>
-                            <th class="p-2">% DCTO.</th>
-                            <th class="p-2">OBSERVACIONES</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-100 bg-white">
-                        <tr>
-                            <td class="p-2 text-left font-bold">COLEGIATURAS 2025-26</td>
-                            <td class="p-2">10,900,784</td>
-                            <td class="p-2">6,540,471</td>
-                            <td class="p-2 font-bold">4,360,314</td>
-                            <td class="p-2">40.0%</td>
-                            <td class="p-2"></td>
-                        </tr>
-                        <tr>
-                            <td class="p-2 text-left font-bold">INSCRIPCIONES 2026-27</td>
-                            <td class="p-2">1,546,168</td>
-                            <td class="p-2">1,236,935</td>
-                            <td class="p-2 font-bold">309,234</td>
-                            <td class="p-2">20.0%</td>
-                            <td class="p-2"></td>
-                        </tr>
-                        <tr class="bg-gray-200 font-bold border-t border-gray-300">
-                            <td class="p-2 text-left">TOTAL</td>
-                            <td class="p-2">12,446,952</td>
-                            <td class="p-2">7,777,405</td>
-                            <td class="p-2 text-nwl-burgundy">4,669,547</td>
-                            <td class="p-2"></td>
-                            <td class="p-2"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            </div >
-            `;
-
-        // Slide 3 (New): Resumen Global Tables
-        const slide3_HTML = `
-            < div class="p-4 md:p-6 text-[10px] md:text-xs" >
-                <div class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-[#C5A059]/30 pb-2">
-                    <h2 class="text-xl md:text-3xl text-nwl-burgundy serif-font">Programa <span class="text-[#C5A059]">S.E.R.</span></h2>
-                    <span class="text-slate-500 font-light text-lg">Resumen Global</span>
-                </div>
-
-                <div class="space-y-8">
-                    <!-- Table 1 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-            <div class="bg-[#A49E8D] text-white p-2 font-bold px-4">PRESUPUESTO 2025-2026</div>
-            <table class="w-full text-center text-slate-600">
-                <thead class="bg-[#A49E8D]/50 text-white text-[9px] uppercase font-bold">
-                    <tr>
-                        <th class="p-2 text-left w-1/4">CONCEPTO</th>
-                        <th class="p-2">BASE</th>
-                        <th class="p-2">CON DESCUENTO</th>
-                        <th class="p-2">DIFERENCIA</th>
-                        <th class="p-2">% DCTO.</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-gray-100 bg-white">
-                    ${[
-                    ['COLEGIATURAS 2025-26', '$26,964,192', '$19,212,202', '$7,751,990', '28.7%'],
-                    ['INSCRIPCIONES 2026-27', '$887,270', '$577,922', '$309,348', '34.9%'],
-                    ['REINSCRIPCIONES 2026-27', '$3,440,777', '$2,757,823', '$682,954', '19.8%'],
-                    ].map(row => `
-                    <tr class="hover:bg-gray-50 transition">
-                        <td class="p-2 text-left font-medium uppercase">${row[0]}</td>
-                        <td class="p-2 text-gray-500">${row[1]}</td>
-                        <td class="p-2 font-bold text-nwl-burgundy">${row[2]}</td>
-                        <td class="p-2">${row[3]}</td>
-                        <td class="p-2 text-gray-400 text-[9px]">${row[4]}</td>
-                    </tr>
-                    `).join('')}
-                    <tr class="bg-[#A49E8D]/20 font-bold border-t border-gray-300">
-                        <td class="p-2 text-left text-nwl-burgundy">TOTAL</td>
-                        <td class="p-2">$31,292,239</td>
-                        <td class="p-2">$22,547,947</td>
-                        <td class="p-2">$8,744,291</td>
-                        <td class="p-2"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Table 2 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-            <div class="bg-[#A49E8D] text-white p-2 font-bold px-4">PRESUPUESTO 2025-2026 (S.E.R)</div>
-            <table class="w-full text-center text-slate-600">
-                <thead class="bg-[#A49E8D]/50 text-white text-[9px] uppercase font-bold">
-                    <tr>
-                        <th class="p-2 text-left w-1/4">CONCEPTO</th>
-                        <th class="p-2">BASE</th>
-                        <th class="p-2">CON DESCUENTO</th>
-                        <th class="p-2">DIFERENCIA</th>
-                        <th class="p-2">% DCTO.</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-gray-100 bg-white">
-                    ${[
-                    ['COLEGIATURAS 2025-26', '$10,900,784', '$6,540,471', '$4,360,314', '40.0%'],
-                    ['INSCRIPCIONES 2026-27', '$1,546,168', '$1,236,935', '$309,234', '20.0%'],
-                    ].map(row => `
-                    <tr class="hover:bg-gray-50 transition">
-                        <td class="p-2 text-left font-medium uppercase">${row[0]}</td>
-                        <td class="p-2 text-gray-500">${row[1]}</td>
-                        <td class="p-2 font-bold text-nwl-burgundy">${row[2]}</td>
-                        <td class="p-2">${row[3]}</td>
-                        <td class="p-2 text-gray-400 text-[9px]">${row[4]}</td>
-                    </tr>
-                    `).join('')}
-                    <tr class="bg-[#A49E8D]/20 font-bold border-t border-gray-300">
-                        <td class="p-2 text-left text-nwl-burgundy">TOTAL</td>
-                        <td class="p-2">$12,446,952</td>
-                        <td class="p-2">$7,777,405</td>
-                        <td class="p-2">$4,669,547</td>
-                        <td class="p-2"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Table 3 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-            <div class="bg-[#A49E8D] text-white p-2 font-bold px-4">CON BASE EN OCUPACIÓN 2025-2026</div>
-            <table class="w-full text-center text-slate-600">
-                <thead class="bg-[#A49E8D]/50 text-white text-[9px] uppercase font-bold">
-                    <tr>
-                        <th class="p-2 text-left w-1/4">CONCEPTO</th>
-                        <th class="p-2">BASE</th>
-                        <th class="p-2">CON DESCUENTO</th>
-                        <th class="p-2">DIFERENCIA</th>
-                        <th class="p-2">% DCTO.</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-gray-100 bg-white">
-                    ${[
-                    ['COLEGIATURAS', '$37,864,976', '$25,752,672', '$12,112,304', '32.0%'],
-                    ['INSCRIPCIONES Y REINSCR.', '$5,874,215', '$4,572,680', '$1,301,535', '22.2%'],
-                    ].map(row => `
-                    <tr class="hover:bg-gray-50 transition">
-                        <td class="p-2 text-left font-medium uppercase">${row[0]}</td>
-                        <td class="p-2 text-gray-500">${row[1]}</td>
-                        <td class="p-2 font-bold text-nwl-burgundy">${row[2]}</td>
-                        <td class="p-2">${row[3]}</td>
-                        <td class="p-2 text-gray-400 text-[9px]">${row[4]}</td>
-                    </tr>
-                    `).join('')}
-                    <tr class="bg-[#A49E8D]/20 font-bold border-t border-gray-300">
-                        <td class="p-2 text-left text-nwl-burgundy">TOTAL</td>
-                        <td class="p-2">$43,739,191</td>
-                        <td class="p-2">$30,325,352</td>
-                        <td class="p-2">$13,413,839</td>
-                        <td class="p-2"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        </div>
-        </div>
-        `;
-
-        // Slide 4 (Moved from 3): Egreso Presupuesto 2025-26
-        const slide4_HTML = `
-        < div class="p-4 md:p-6 text-[10px] md:text-xs">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-[#C5A059]/30 pb-2">
-                <h2 class="text-xl md:text-3xl text-nwl-burgundy serif-font">EGRESO <span
-                        class="text-[#C5A059]">Presupuesto</span></h2>
-                <div class="text-right">
-                    <span class="text-slate-500 font-light text-lg">2025-26</span>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <!-- Main Expense Tables (Left Column - Span 2) -->
-                <div class="lg:col-span-2 space-y-6">
-
-                    <!-- Table 1: Egreso Controlado -->
-                    <div class="border border-gray-200 rounded-lg overflow-hidden">
-                        <div class="bg-[#A49E8D] text-white p-2 font-bold px-4 flex justify-between items-center">
-                            <span>EGRESO CONTROLADO</span>
-                            <span class="text-[9px] opacity-75">QUICKBOOKS vs PRESUPUESTO</span>
-                        </div>
-                        <table class="w-full text-center text-slate-600">
-                            <thead class="bg-gray-50 text-[9px] font-bold text-slate-500 border-b border-gray-200">
-                                <tr>
-                                    <th class="p-2 text-left">CONCEPTO</th>
-                                    <th class="p-2">2024-2025</th>
-                                    <th class="p-2 text-nwl-burgundy">PRESUPUESTADO</th>
-                                    <th class="p-2">DIFERENCIA</th>
-                                    <th class="p-2">VAR %</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-100 bg-white">
-                                ${[
-                                ['CONTROLADO:1.1. CAPACITACION', '$0.00', '$30,000.00', '$30,000.00', '-'],
-                                ['CONTROLADO:1.2. CORTESIAS Y EVENTOS', '$4,465.57', '$20,000.00', '$15,534.43',
-                                '77.7%'],
-                                ['CONTROLADO:1.3. EVENTOS ESPECIALES', '$390,162.26', '$446,250.00', '$56,087.75',
-                                '12.6%'],
-                                ['CONTROLADO:1.4. IMPRESOS INTERNOS', '$90,321.96', '$120,000.00', '$29,678.04',
-                                '24.7%'],
-                                ['CONTROLADO:1.5 MATERIALES', '$13,881.12', '$0.00', '-$13,881.12', '-'],
-                                ['CONTROLADO:1.6 OPERACION', '$1,699,598.30', '$1,818,048.00', '$118,449.70', '6.5%'],
-                                ['CONTROLADO:1.7 OTROS GASTOS GENERALES', '$135,946.96', '$108,216.00', '-$27,730.96',
-                                '-25.6%'],
-                                ['CONTROLADO:1.8 UNIFORMES', '$89,126.52', '$75,000.00', '-$14,126.52', '-18.8%'],
-                                ['PREPARATORIA', '$0.00', '$362,340.00', '$362,340.00', '100.0%'],
-                                ].map(row => `
-                                <tr class="hover:bg-gray-50 transition">
-                                    <td class="p-1 text-left font-medium truncate max-w-[150px]">${row[0]}</td>
-                                    <td class="p-1 text-gray-400">${row[1]}</td>
-                                    <td class="p-1 font-bold text-nwl-burgundy">${row[2]}</td>
-                                    <td class="p-1 ${row[3].startsWith('-') ? 'text-red-500' : 'text-green-600'}">
-                                        ${row[3]}</td>
-                                    <td class="p-1 text-[9px] bg-gray-50">${row[4]}</td>
-                                </tr>
-                                `).join('')}
-                                <tr class="bg-[#A49E8D]/20 font-bold border-t border-gray-300">
-                                    <td class="p-2 text-left text-nwl-burgundy">TOTAL CONTROLADO</td>
-                                    <td class="p-2">$2,423,502.69</td>
-                                    <td class="p-2">$2,979,854.00</td>
-                                    <td class="p-2">$556,351.32</td>
-                                    <td class="p-2">18.7%</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- Table 2: Egresos Fijos -->
-                    <div class="border border-gray-200 rounded-lg overflow-hidden">
-                        <div class="bg-[#A49E8D] text-white p-2 font-bold px-4">EGRESO FIJOS</div>
-                        <table class="w-full text-center text-slate-600">
-                            <tbody class="divide-y divide-gray-100 bg-white">
-                                ${[
-                                ['CAPACITACIÓN FPN', '$70,513.16', '$0.00', '-$70,513.16', '-'],
-                                ['CAPACITACIÓN DIRECCIONES', '$0.00', '$30,000.00', '$30,000.00', '100%'],
-                                ['FEDEP APOYO LEGAL ESCUELAS', '$48,921.98', '$51,419.85', '$2,497.87', '4.9%'],
-                                ['NOM 035', '$0.00', '$30,000.00', '$30,000.00', '100%'],
-                                ['ARRENDAMIENTO CANCHA DE BASKET', '$0.00', '$120,000.00', '$120,000.00', '100%'],
-                                ['PUBLICIDAD', '$246,912.72', '$322,000.00', '$75,087.28', '23.3%'],
-                                ['SEGURIDAD', '$630,712.89', '$684,020.04', '$53,307.15', '7.8%'],
-                                ['SERVICIOS CONTABLES', '$291,914.00', '$308,826.80', '$16,912.80', '5.5%'],
-                                ['ZOOM', '$7,800.00', '$10,000.00', '$2,200.00', '22.0%'],
-                                ].map(row => `
-                                <tr class="hover:bg-gray-50 transition">
-                                    <td class="p-1 text-left font-medium truncate max-w-[150px]">${row[0]}</td>
-                                    <td class="p-1 text-gray-400">${row[1]}</td>
-                                    <td class="p-1 font-bold text-nwl-burgundy">${row[2]}</td>
-                                    <td class="p-1 ${row[3].startsWith('-') ? 'text-red-500' : 'text-green-600'}">
-                                        ${row[3]}</td>
-                                    <td class="p-1 text-[9px] bg-gray-50">${row[4]}</td>
-                                </tr>
-                                `).join('')}
-                                <tr class="bg-[#A49E8D]/20 font-bold border-t border-gray-300">
-                                    <td class="p-2 text-left text-nwl-burgundy">TOTAL FIJOS</td>
-                                    <td class="p-2">$1,296,774.75</td>
-                                    <td class="p-2">$1,556,266.69</td>
-                                    <td class="p-2">$259,491.94</td>
-                                    <td class="p-2">16.7%</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- Table 3: Gasto Financiero -->
-                    <div class="border border-gray-200 rounded-lg overflow-hidden">
-                        <div class="bg-[#A49E8D] text-white p-2 font-bold px-4">GASTO FINANCIERO</div>
-                        <table class="w-full text-center text-slate-600">
-                            <tbody class="divide-y divide-gray-100 bg-white">
-                                ${[
-                                ['COMISIONES BANCARIAS', '$130,801.56', '$139,400.00', '$8,598.44', '6.2%'],
-                                ['IMPUESTOS', '$377,123.00', '$414,000.00', '$36,877.00', '8.9%'],
-                                ['ARRENDAMIENTO CAMIÓN', '$502,285.48', '$537,285.48', '$35,000.00', '6.5%'],
-                                ].map(row => `
-                                <tr class="hover:bg-gray-50 transition">
-                                    <td class="p-1 text-left font-medium truncate max-w-[150px]">${row[0]}</td>
-                                    <td class="p-1 text-gray-400">${row[1]}</td>
-                                    <td class="p-1 font-bold text-nwl-burgundy">${row[2]}</td>
-                                    <td class="p-1 ${row[3].startsWith('-') ? 'text-red-500' : 'text-green-600'}">
-                                        ${row[3]}</td>
-                                    <td class="p-1 text-[9px] bg-gray-50">${row[4]}</td>
-                                </tr>
-                                `).join('')}
-                                <tr class="bg-[#A49E8D]/20 font-bold border-t border-gray-300">
-                                    <td class="p-2 text-left text-nwl-burgundy">TOTAL FINANCIEROS</td>
-                                    <td class="p-2">$1,010,210.04</td>
-                                    <td class="p-2">$1,090,685.48</td>
-                                    <td class="p-2">$45,475.44</td>
-                                    <td class="p-2">4.2%</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                </div>
-
-                <!-- Right Column: Summary & Concepts -->
-                <div class="space-y-6">
-                    <!-- Concepts Details -->
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-100 text-xs">
-                        <h4 class="font-bold text-nwl-burgundy mb-3 border-b border-gray-200 pb-2">CONCEPTOS NÓMINA</h4>
-                        <ul class="space-y-2 text-slate-600">
-                            <li class="flex justify-between"><span>AGUINALDO</span> <span
-                                    class="font-medium">$327,058.97</span></li>
-                            <li class="flex justify-between"><span>FONDO FINIQUITOS</span> <span
-                                    class="font-medium">$300,000.00</span></li>
-                            <li class="flex justify-between"><span>HONORARIOS</span> <span
-                                    class="font-medium">$443,200.00</span></li>
-                            <li class="flex justify-between"><span>IMPUESTO ESTATAL</span> <span
-                                    class="font-medium">$215,016.91</span></li>
-                            <li class="flex justify-between"><span>IMSS</span> <span
-                                    class="font-medium">$1,503,876.60</span></li>
-                            <li class="flex justify-between"><span>INFONAVIT</span> <span
-                                    class="font-medium">$1,284,459.24</span></li>
-                            <li class="flex justify-between"><span>ISR NÓMINA</span> <span
-                                    class="font-medium">$780,321.36</span></li>
-                            <li class="flex justify-between font-bold text-nwl-burgundy bg-white p-1 rounded">
-                                <span>NÓMINA CAMPUS</span> <span>$6,438,843.75</span></li>
-                            <li class="flex justify-between"><span>ASIMILADOS</span> <span
-                                    class="font-medium">$572,166.85</span></li>
-                            <li class="flex justify-between"><span>SINDICATO</span> <span
-                                    class="font-medium">$25,000.00</span></li>
-                            <li class="flex justify-between"><span>PRIMA VACACIONAL</span> <span
-                                    class="font-medium">$81,192.19</span></li>
-                            <li class="flex justify-between border-t border-gray-200 pt-2 font-bold text-lg"><span>TOTAL
-                                    NÓMINA</span> <span>$11,971,140.87</span></li>
-                        </ul>
-                    </div>
-
-                    <!-- Grand Summary Card -->
-                    <div class="bg-nwl-burgundy text-white p-6 rounded-lg shadow-lg">
-                        <h3 class="text-xl serif-font font-bold mb-4 text-[#C5A059]">RESUMEN GASTOS</h3>
-                        <div class="space-y-3 text-sm">
-                            <div class="flex justify-between items-center">
-                                <span class="opacity-80">CONTROLADOS</span>
-                                <span class="font-mono font-bold">$2,979,854.00</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span class="opacity-80">FIJOS</span>
-                                <span class="font-mono font-bold">$1,556,266.69</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span class="opacity-80">FINANCIERO</span>
-                                <span class="font-mono font-bold">$1,090,685.48</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span class="opacity-80">NÓMINAS</span>
-                                <span class="font-mono font-bold">$11,971,140.87</span>
-                            </div>
-                            <div class="h-px bg-[#C5A059]/50 my-2"></div>
-                            <div class="flex justify-between items-center text-lg font-bold text-[#C5A059]">
-                                <span>TOTAL EGRESOS</span>
-                                <span>$17,597,947.04</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-            `;
-
-            // Slide 5 (Index 5): Resumen 2025-26
-            const slide5_HTML = `
-            < div class="p-4 md:p-6 text-[10px] md:text-xs">
-                <div class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-[#C5A059]/30 pb-2">
-                    <h2 class="text-xl md:text-3xl text-nwl-burgundy serif-font">RESUMEN <span
-                            class="text-[#C5A059]">2025-26</span></h2>
-                </div>
-                <div class="h-64 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-200">
-                    <p class="text-slate-400">Datos pendientes de cargar.</p>
-                </div>
-                </div>
-                `;
-
-                // Slide 6 (Index 6): Resumen CON S.E.R.
-                const slide6_HTML = `
-                < div class="p-4 md:p-6 text-[10px] md:text-xs">
-                    <div
-                        class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-[#C5A059]/30 pb-2">
-                        <h2 class="text-xl md:text-3xl text-nwl-burgundy serif-font">RESUMEN <span
-                                class="text-[#C5A059]">CON S.E.R.</span></h2>
-                    </div>
-                    <div class="h-64 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-200">
-                        <p class="text-slate-400">Datos pendientes de cargar.</p>
-                    </div>
-                    </div>
-                    `;
-
-                    // Slide 7 (Index 7): Programa PIN 60%
-                    const slide7_HTML = `
-                    < div class="p-4 md:p-6 text-[10px] md:text-xs">
-                        <div
-                            class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-[#C5A059]/30 pb-2">
-                            <h2 class="text-xl md:text-3xl text-nwl-burgundy serif-font">PROGRAMA <span
-                                    class="text-[#C5A059]">PIN 60%</span></h2>
-                        </div>
-                        <div class="h-64 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-200">
-                            <p class="text-slate-400">Datos pendientes de cargar.</p>
-                        </div>
-                        </div>
-                        `;
-
-                        // Slide 8 (Index 8): Resumen SER AL 60%
-                        const slide8_HTML = `
-                        < div class="p-4 md:p-6 text-[10px] md:text-xs">
-                            <div
-                                class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-[#C5A059]/30 pb-2">
-                                <h2 class="text-xl md:text-3xl text-nwl-burgundy serif-font">RESUMEN <span
-                                        class="text-[#C5A059]">SER AL 60%</span></h2>
-                            </div>
-                            <div
-                                class="h-64 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-200">
-                                <p class="text-slate-400">Datos pendientes de cargar.</p>
-                            </div>
-                            </div>
-                            `;
-
-                            // Slide 9 (Index 9): Resumen CON S.E.R. 60%
-                            const slide9_HTML = `
-                            < div class="p-4 md:p-6 text-[10px] md:text-xs">
-                                <div
-                                    class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-[#C5A059]/30 pb-2">
-                                    <h2 class="text-xl md:text-3xl text-nwl-burgundy serif-font">RESUMEN <span
-                                            class="text-[#C5A059]">CON S.E.R. 60%</span></h2>
-                                </div>
-                                <div
-                                    class="h-64 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-200">
-                                    <p class="text-slate-400">Datos pendientes de cargar.</p>
-                                </div>
-                                </div>
-                                `;
-
-                                function openModal(index) {
-                                currentSlideIndex = index;
-                                renderSlide();
-                                document.getElementById('galleryModal').classList.remove('hidden');
-                                document.body.style.overflow = 'hidden';
-                                }
-
-                                function closeModal() {
-                                document.getElementById('galleryModal').classList.add('hidden');
-                                document.body.style.overflow = 'auto';
-                                }
-
-                                function changeSlide(direction) {
-                                currentSlideIndex += direction;
-                                if (currentSlideIndex < 0) currentSlideIndex=totalSlides - 1; if (currentSlideIndex>=
-                                    totalSlides) currentSlideIndex = 0;
-                                    renderSlide();
-                                    }
-
-                                    function renderSlide() {
-                                    const container = document.getElementById('modalContent');
-
-                                    // Clear previous animation
-                                    container.classList.remove('animate-fadeIn');
-                                    void container.offsetWidth; // trigger reflow
-                                    container.classList.add('animate-fadeIn');
-
-                                    if (currentSlideIndex === 0) {
-                                    container.innerHTML = slide0_HTML;
-                                    } else if (currentSlideIndex === 1) {
-                                    container.innerHTML = slide1_HTML;
-                                    } else if (currentSlideIndex === 2) {
-                                    container.innerHTML = slide2_HTML;
-                                    } else if (currentSlideIndex === 3) {
-                                    container.innerHTML = slide3_HTML;
-                                    } else if (currentSlideIndex === 4) {
-                                    container.innerHTML = slide4_HTML;
-                                    } else if (currentSlideIndex === 5) {
-                                    container.innerHTML = slide5_HTML;
-                                    } else if (currentSlideIndex === 6) {
-                                    container.innerHTML = slide6_HTML;
-                                    } else if (currentSlideIndex === 7) {
-                                    container.innerHTML = slide7_HTML;
-                                    } else if (currentSlideIndex === 8) {
-                                    container.innerHTML = slide8_HTML;
-                                    } else if (currentSlideIndex === 9) {
-                                    container.innerHTML = slide9_HTML;
-                                    } else {
-                                    </div>
-                                    `;
-
-                                    // Slide 11 (Index 10): Condiciones del Programa S.E.R.
-                                    const slide10_HTML = `
-                                    <div class="p-4 md:p-8 text-xs md:text-sm">
-                                        <div
-                                            class="flex flex-col md:flex-row justify-between items-end mb-8 border-b border-[#C5A059]/30 pb-4">
-                                            <h2 class="text-2xl md:text-4xl text-nwl-burgundy serif-font uppercase">
-                                                Condiciones <span class="text-[#C5A059]">del Programa S.E.R.</span></h2>
-                                        </div>
-
-                                        <div
-                                            class="max-w-4xl mx-auto bg-gray-50 rounded-xl p-6 md:p-10 border border-gray-100 shadow-sm">
-                                            <ol class="space-y-6 text-slate-700">
-                                                <li class="flex gap-4">
-                                                    <span
-                                                        class="flex-shrink-0 w-8 h-8 rounded-full bg-[#C5A059] text-white flex items-center justify-center font-bold font-serif">1</span>
-                                                    <div class="pt-1">
-                                                        <p class="font-bold text-nwl-burgundy uppercase">APLICA EL
-                                                            DESCUENTO SOLO COMO PRONTO PAGO</p>
-                                                        <p class="text-slate-500 mt-1">SIN NINGÚN DESCUENTO ADICIONAL.
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <li class="flex gap-4">
-                                                    <span
-                                                        class="flex-shrink-0 w-8 h-8 rounded-full bg-[#C5A059] text-white flex items-center justify-center font-bold font-serif">2</span>
-                                                    <div class="pt-1">
-                                                        <p class="font-bold text-nwl-burgundy uppercase">NO APLICAN
-                                                            BECAS ADICIONALES</p>
-                                                        <p class="text-slate-500 mt-1">(SE TENDRÁ QUE ELEGIR LO QUE MÁS
-                                                            LE CONVENGA).</p>
-                                                    </div>
-                                                </li>
-                                                <li class="flex gap-4">
-                                                    <span
-                                                        class="flex-shrink-0 w-8 h-8 rounded-full bg-[#C5A059] text-white flex items-center justify-center font-bold font-serif">3</span>
-                                                    <div class="pt-1">
-                                                        <p class="font-bold text-nwl-burgundy uppercase">CONDICIÓN DE
-                                                            REFERIDO</p>
-                                                        <p class="text-slate-500 mt-1">SI EL ALUMNO REFERIDO ENTRA EN
-                                                            MORA O SALE DEL COLEGIO, EL DESCUENTO DEL 10% DEL REFERIDO
-                                                            NO APLICA.</p>
-                                                    </div>
-                                                </li>
-                                                <li class="flex gap-4">
-                                                    <span
-                                                        class="flex-shrink-0 w-8 h-8 rounded-full bg-[#C5A059] text-white flex items-center justify-center font-bold font-serif">4</span>
-                                                    <div class="pt-1">
-                                                        <p class="font-bold text-nwl-burgundy uppercase">CAPACIDADES
-                                                            ESPECÍFICAS</p>
-                                                        <p class="text-slate-500 mt-1">SOLO APLICA A CAPACIDADES
-                                                            ESPECÍFICAS. <br> <span
-                                                                class="italic text-[#C5A059]">EJEMPLO: CORREGIDORA 100
-                                                                PLAZAS.</span></p>
-                                                    </div>
-                                                </li>
-                                            </ol>
-                                        </div>
-                                    </div>
-                                    `;
-
-                                    function renderSlide() {
-                                    const container = document.getElementById('modalContent');
-
-                                    // Clear previous animation
-                                    container.classList.remove('animate-fadeIn');
-                                    void container.offsetWidth; // trigger reflow
-                                    container.classList.add('animate-fadeIn');
-
-                                    if (currentSlideIndex === 0) {
-                                    container.innerHTML = slide0_HTML;
-                                    } else if (currentSlideIndex === 1) {
-                                    container.innerHTML = slide1_HTML;
-                                    } else if (currentSlideIndex === 2) {
-                                    container.innerHTML = slide2_HTML;
-                                    } else if (currentSlideIndex === 3) {
-                                    container.innerHTML = slide3_HTML;
-                                    } else if (currentSlideIndex === 4) {
-                                    container.innerHTML = slide4_HTML;
-                                    } else if (currentSlideIndex === 5) {
-                                    container.innerHTML = slide5_HTML;
-                                    } else if (currentSlideIndex === 6) {
-                                    container.innerHTML = slide6_HTML;
-                                    } else if (currentSlideIndex === 7) {
-                                    container.innerHTML = slide7_HTML;
-                                    } else if (currentSlideIndex === 8) {
-                                    container.innerHTML = slide8_HTML;
-                                    } else if (currentSlideIndex === 9) {
-                                    container.innerHTML = slide9_HTML;
-                                    } else if (currentSlideIndex === 10) {
-                                    container.innerHTML = slide10_HTML;
-                                    } else {
-                                    container.innerHTML = `
-                                    <div
-                                        class="h-[60vh] flex flex-col items-center justify-center p-12 text-center select-none">
-                                        <div
-                                            class="w-40 h-40 bg-gray-50 rounded-full flex items-center justify-center mb-6 shadow-inner">
-                                            <span class="text-6xl text-gray-200 font-serif">${currentSlideIndex +
-                                                1}</span>
-                                        </div>
-                                        <h3 class="text-3xl font-bold text-nwl-burgundy mb-2">Análisis Financiero
-                                            ${currentSlideIndex + 1}</h3>
-                                        <p class="text-slate-400 max-w-md mx-auto">Esta diapositiva está reservada para
-                                            el desglose detallado de la proyección financiera correspondiente.</p>
-                                    </div>
-                                    `;
-                                    }
-                                    }
-
-                                    // Keyboard Navigation
-                                    document.addEventListener('keydown', function (event) {
-                                    if (!document.getElementById('galleryModal').classList.contains('hidden')) {
-                                    if (event.key === "Escape") closeModal();
-                                    if (event.key === "ArrowLeft") changeSlide(-1);
-                                    if (event.key === "ArrowRight") changeSlide(1);
-                                    }
-                                    });
-
-                                    </script>
 </body>
 
 </html>
