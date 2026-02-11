@@ -517,9 +517,23 @@
                     </div>
                 </div>
 
-                <!-- Slides 2-17: Placeholders -->
+                <!-- Slide 2: Presupuesto Table (Thumbnail) -->
+                <div class="cursor-pointer group relative bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden aspect-[4/3] flex flex-col"
+                    onclick="openModal(1)">
+                    <div class="bg-[#C5A059] h-2 w-full"></div>
+                    <div
+                        class="p-2 flex-1 flex flex-col items-center justify-center bg-gray-50 group-hover:bg-white transition">
+                        <span class="text-3xl">💰</span>
+                        <span class="text-xs font-bold text-nwl-burgundy mt-2 text-center">PRESUPUESTO</span>
+                        <span class="text-xs text-slate-400">2025-26</span>
+                    </div>
+                    <div class="absolute inset-0 bg-[#C5A059]/0 group-hover:bg-[#C5A059]/5 transition duration-300">
+                    </div>
+                </div>
+
+                <!-- Slides 3-17: Placeholders -->
                 <script>
-                    for (let i = 2; i <= 17; i++) {
+                    for (let i = 3; i <= 17; i++) {
                         document.write(`
                             <div class="cursor-pointer group relative bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden aspect-[4/3] flex flex-col" onclick="openModal(${i - 1})">
                                 <div class="bg-slate-200 h-2 w-full group-hover:bg-[#C5A059] transition-colors"></div>
@@ -769,6 +783,146 @@
             </div>
         `;
 
+        // Slide 1: APROBADA EN Presupuesto 2025-26
+        const slide1_HTML = `
+            <div class="p-4 md:p-6 text-[10px] md:text-xs">
+                 <div class="flex flex-col md:flex-row justify-between items-end mb-4 border-b border-[#C5A059]/30 pb-2">
+                    <h2 class="text-xl md:text-3xl text-nwl-burgundy serif-font">APROBADA EN <span class="text-[#C5A059]">Presupuesto</span></h2>
+                    <span class="text-slate-500 font-light text-lg">2025-26</span>
+                </div>
+
+                <!-- Main Table -->
+                <div class="overflow-x-auto shadow-sm rounded-lg border border-gray-100 mb-6">
+                    <table class="w-full text-center border-collapse whitespace-nowrap">
+                        <thead>
+                            <tr class="bg-[#A49E8D]/80 text-white uppercase tracking-wider">
+                                <th class="p-1 border-r border-white/20"></th>
+                                <th colspan="5" class="p-1 border-r border-white/20 text-[#5D2A2C] font-bold bg-[#A49E8D]">INGRESOS</th>
+                                <th colspan="5" class="p-1 border-r border-white/20 text-[#5D2A2C] font-bold bg-[#C5A059]/50">INGRESOS CON DESCUENTO</th>
+                                <th colspan="2" class="p-1 bg-[#A49E8D]"></th>
+                            </tr>
+                            <tr class="bg-[#A49E8D] text-white font-normal text-[9px]">
+                                <th class="p-2 text-left min-w-[120px]">ALUMNOS</th>
+                                <th class="p-2">COLEGIATURAS</th>
+                                <th class="p-2">REINSCRIPCIONES</th>
+                                <th class="p-2">INSCRIPCIONES</th>
+                                <th class="p-2">CUOTAS</th>
+                                <th class="p-2 font-bold bg-[#5D2A2C]/10 text-white">TOTAL<br>INGRESOS</th>
+                                
+                                <th class="p-2 bg-[#C5A059]/20">COLEGIATURAS</th>
+                                <th class="p-2 bg-[#C5A059]/20">REINSCRIPCIONES</th>
+                                <th class="p-2 bg-[#C5A059]/20">INSCRIPCIONES</th>
+                                <th class="p-2 bg-[#C5A059]/20">CUOTAS</th>
+                                <th class="p-2 font-bold bg-[#C5A059]/40 text-[#5D2A2C]">TOTAL INGRESO<br>CON DESCUENTO</th>
+                                
+                                <th class="p-2 font-bold">TOTAL<br>DESCUENTO</th>
+                                <th class="p-2">% POR GRADO</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-slate-700 divide-y divide-gray-200 bg-white">
+                            ${[
+                ['MATERNAL', '386,520', '0', '33,125', '43,545', '463,190', '240,931', '0', '28,344', '43,545', '312,820', '150,370', '32.5%'],
+                ['KINDER 1', '1,262,632', '18,750', '59,625', '81,108', '1,422,115', '794,640', '16,766', '51,020', '81,108', '943,533', '478,582', '33.7%'],
+                ['KINDER 2', '2,144,382', '238,032', '53,119', '148,698', '2,584,231', '1,587,854', '198,396', '36,445', '148,698', '1,971,393', '612,838', '23.7%'],
+                ['KINDER 3', '1,098,342', '325,728', '26,559', '189,252', '1,639,881', '812,134', '277,004', '18,222', '189,252', '1,296,612', '343,269', '20.9%'],
+                ['PRIMERO PRIMARIA', '1,735,968', '159,500', '16,907', '93,574', '2,005,949', '1,308,653', '126,702', '10,862', '93,574', '1,539,790', '466,159', '23.2%'],
+                ['SEGUNDO PRIMARIA', '2,403,648', '191,400', '16,907', '93,574', '2,705,529', '1,769,894', '146,405', '10,862', '93,574', '2,020,736', '684,793', '25.3%'],
+                ['TERCERO PRIMARIA', '2,292,368', '263,175', '67,628', '147,559', '2,770,730', '1,483,218', '197,324', '43,447', '147,559', '1,871,548', '899,182', '32.5%'],
+                ['CUARTO PRIMARIA', '1,402,128', '247,225', '67,628', '133,163', '1,850,144', '860,148', '182,686', '43,447', '133,163', '1,219,444', '630,700', '34.1%'],
+                ['QUINTO PRIMARIA', '1,246,336', '191,400', '50,721', '107,970', '1,596,427', '979,820', '154,846', '32,585', '107,970', '1,275,222', '321,205', '20.1%'],
+                ['SEXTO PRIMARIA', '2,247,856', '175,450', '101,442', '122,366', '2,647,114', '1,558,330', '134,118', '65,171', '122,366', '1,879,985', '767,129', '29.0%'],
+                ['PRIMERO SECUNDARIA', '2,245,516', '284,648', '159,738', '196,248', '2,886,150', '1,446,366', '222,601', '98,658', '196,248', '1,963,873', '922,277', '32.0%'],
+                ['SEGUNDO SECUNDARIA', '3,528,668', '200,928', '35,497', '105,672', '3,870,765', '2,448,388', '143,051', '21,924', '105,672', '2,719,035', '1,151,730', '29.8%'],
+                ['TERCERO SECUNDARIA', '3,281,908', '485,576', '88,743', '256,632', '4,112,859', '2,610,875', '375,790', '54,810', '256,632', '3,298,107', '814,752', '19.8%'],
+                ['PRIMERO PREPARATORIA', '1,687,920', '502,350', '78,308', '151,146', '2,419,724', '1,310,951', '425,520', '44,374', '151,146', '1,931,991', '487,732', '20.2%'],
+                ['SEGUNDO PREPARATORIA', '', '156,615', '31,323', '67,176', '255,114', '', '156,615', '17,750', '67,176', '241,541', '13,573', '5.3%'],
+                ['TERCERO PREPARATORIA', '', '', '', '', '', '', '', '', '', '', '', ''],
+            ].map((row, i) => {
+                const bgClass = (i % 2 === 0) ? 'bg-[#F9F9F7]' : 'bg-white';
+                return `
+                                <tr class="${bgClass} hover:bg-[#C5A059]/10 transition">
+                                    <td class="p-2 text-left font-bold text-nwl-burgundy border-r whitespace-nowrap">${row[0]}</td>
+                                    
+                                    <td class="p-2 border-r text-gray-500">$${row[1]}</td>
+                                    <td class="p-2 border-r text-gray-500">$${row[2]}</td>
+                                    <td class="p-2 border-r text-gray-500">$${row[3]}</td>
+                                    <td class="p-2 border-r text-gray-500">$${row[4]}</td>
+                                    <td class="p-2 border-r font-bold bg-[#A49E8D]/10">$${row[5] || '-'}</td>
+                                    
+                                    <td class="p-2 border-r bg-[#C5A059]/5 text-nwl-burgundy">$${row[6] || '-'}</td>
+                                    <td class="p-2 border-r bg-[#C5A059]/5 text-nwl-burgundy">$${row[7] || '-'}</td>
+                                    <td class="p-2 border-r bg-[#C5A059]/5 text-nwl-burgundy">$${row[8] || '-'}</td>
+                                    <td class="p-2 border-r bg-[#C5A059]/5 text-nwl-burgundy">$${row[9] || '-'}</td>
+                                    <td class="p-2 border-r font-bold bg-[#C5A059]/10 text-nwl-burgundy">$${row[10] || '-'}</td>
+                                    
+                                    <td class="p-2 border-r font-bold text-gray-700">$${row[11] || '-'}</td>
+                                    <td class="p-2 text-xs font-bold">${row[12]}</td>
+                                </tr>`;
+            }).join('')}
+                            
+                            <tr class="bg-gray-300 font-bold text-[10px] text-nwl-burgundy border-t-2 border-nwl-burgundy">
+                                <td class="p-3 text-left">TOTALES</td>
+                                <td class="p-3">$26,964,192</td>
+                                <td class="p-3">$3,440,777</td>
+                                <td class="p-3">$887,270</td>
+                                <td class="p-3">$1,937,683</td>
+                                <td class="p-3">$33,229,922</td>
+                                <td class="p-3">$19,212,202</td>
+                                <td class="p-3">$2,757,823</td>
+                                <td class="p-3">$577,922</td>
+                                <td class="p-3">$1,937,683</td>
+                                <td class="p-3">$24,485,630</td>
+                                <td class="p-3">$8,744,291</td>
+                                <td class="p-3">26.3%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Summary Table -->
+                <div class="max-w-3xl mx-auto rounded-lg overflow-hidden border border-gray-200">
+                    <div class="bg-[#A49E8D] text-white p-2 font-bold text-left px-4">PRESUPUESTO 2025-2026</div>
+                    <table class="w-full text-sm text-center">
+                        <thead class="bg-[#A49E8D]/50 text-nwl-burgundy text-[10px] uppercase">
+                            <tr>
+                                <th class="p-2 text-left">CONCEPTO</th>
+                                <th class="p-2">BASE</th>
+                                <th class="p-2">DESCUENTO</th>
+                                <th class="p-2">A PAGAR</th>
+                                <th class="p-2">% DCTO.</th>
+                                <th class="p-2">OBSERVACIONES</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 bg-white text-xs">
+                           ${[
+                ['COLEGIATURAS 2025-26', '26,964,192', '7,751,990', '19,212,202', '28.7%', ''],
+                ['CUOTAS', '1,937,683', '250,560', '1,687,123', '12.9%', 'GASTO DEL INGRESO'],
+                ['INSCRIPCIONES 2026-27', '887,270', '309,348', '577,922', '34.9%', ''],
+                ['REINSCRIPCIONES 2026-27', '3,440,777', '682,954', '2,757,823', '19.8%', ''],
+            ].map(row => `
+                                <tr class="hover:bg-gray-50">
+                                    <td class="p-2 text-left font-bold text-slate-600">${row[0]}</td>
+                                    <td class="p-2">$${row[1]}</td>
+                                    <td class="p-2">$${row[2]}</td>
+                                    <td class="p-2 font-bold">$${row[3]}</td>
+                                    <td class="p-2 text-gray-500">${row[4]}</td>
+                                    <td class="p-2 text-[9px] text-gray-400 italic">${row[5]}</td>
+                                </tr>
+                            `).join('')}
+                            <tr class="bg-gray-300 font-bold border-t border-gray-400">
+                                <td class="p-2 text-left">TOTAL</td>
+                                <td class="p-2">$33,229,922</td>
+                                <td class="p-2">$8,994,851</td>
+                                <td class="p-2">$24,235,070</td>
+                                <td class="p-2"></td>
+                                <td class="p-2"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        `;
+
         function openModal(index) {
             currentSlideIndex = index;
             renderSlide();
@@ -798,6 +952,8 @@
 
             if (currentSlideIndex === 0) {
                 container.innerHTML = slide0_HTML;
+            } else if (currentSlideIndex === 1) {
+                container.innerHTML = slide1_HTML;
             } else {
                 container.innerHTML = `
                     <div class="h-[60vh] flex flex-col items-center justify-center p-12 text-center select-none">
