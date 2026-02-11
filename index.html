@@ -651,20 +651,20 @@
                     </div>
                 </div>
 
-                <!-- Slide 11: Placeholder -->
-                <script>
-                    for (let i = 11; i <= 11; i++) {
-                        document.write(`
-                            <div class="cursor-pointer group relative bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden aspect-[4/3] flex flex-col" onclick="openModal(${i - 1})">
-                                <div class="bg-slate-200 h-2 w-full group-hover:bg-[#C5A059] transition-colors"></div>
-                                <div class="p-2 flex-1 flex flex-col items-center justify-center bg-gray-50 group-hover:bg-white transition">
-                                    <span class="text-xl text-slate-300 font-serif overflow-hidden opacity-50 select-none">${i}</span>
-                                    <span class="text-[10px] text-slate-400 mt-1">Análisis ${i}</span>
-                                </div>
-                            </div>
-                        `);
-                    }
-                </script>
+                <!-- Slide 11: Condiciones del Programa S.E.R. (Thumbnail) -->
+                <div class="cursor-pointer group relative bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden aspect-[4/3] flex flex-col"
+                    onclick="openModal(10)">
+                    <div class="bg-[#C5A059] h-2 w-full"></div>
+                    <div
+                        class="p-2 flex-1 flex flex-col items-center justify-center bg-gray-50 group-hover:bg-white transition">
+                        <span class="text-3xl">📝</span>
+                        <span class="text-xs font-bold text-nwl-burgundy mt-2 text-center">CONDICIONES</span>
+                        <span class="text-xs text-slate-400">PROGRAMA S.E.R.</span>
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-nwl-burgundy/0 group-hover:bg-nwl-burgundy/5 transition duration-300">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1517,14 +1517,90 @@
             } else if (currentSlideIndex === 9) {
                 container.innerHTML = slide9_HTML;
             } else {
+            </div>
+        `;
+
+        // Slide 11 (Index 10): Condiciones del Programa S.E.R.
+        const slide10_HTML = `
+            <div class="p-4 md:p-8 text-xs md:text-sm">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-8 border-b border-[#C5A059]/30 pb-4">
+                     <h2 class="text-2xl md:text-4xl text-nwl-burgundy serif-font uppercase">Condiciones <span class="text-[#C5A059]">del Programa S.E.R.</span></h2>
+                </div>
+
+                <div class="max-w-4xl mx-auto bg-gray-50 rounded-xl p-6 md:p-10 border border-gray-100 shadow-sm">
+                    <ol class="space-y-6 text-slate-700">
+                        <li class="flex gap-4">
+                            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-[#C5A059] text-white flex items-center justify-center font-bold font-serif">1</span>
+                            <div class="pt-1">
+                                <p class="font-bold text-nwl-burgundy uppercase">APLICA EL DESCUENTO SOLO COMO PRONTO PAGO</p>
+                                <p class="text-slate-500 mt-1">SIN NINGÚN DESCUENTO ADICIONAL.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-[#C5A059] text-white flex items-center justify-center font-bold font-serif">2</span>
+                            <div class="pt-1">
+                                <p class="font-bold text-nwl-burgundy uppercase">NO APLICAN BECAS ADICIONALES</p>
+                                <p class="text-slate-500 mt-1">(SE TENDRÁ QUE ELEGIR LO QUE MÁS LE CONVENGA).</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-[#C5A059] text-white flex items-center justify-center font-bold font-serif">3</span>
+                            <div class="pt-1">
+                                <p class="font-bold text-nwl-burgundy uppercase">CONDICIÓN DE REFERIDO</p>
+                                <p class="text-slate-500 mt-1">SI EL ALUMNO REFERIDO ENTRA EN MORA O SALE DEL COLEGIO, EL DESCUENTO DEL 10% DEL REFERIDO NO APLICA.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-[#C5A059] text-white flex items-center justify-center font-bold font-serif">4</span>
+                            <div class="pt-1">
+                                <p class="font-bold text-nwl-burgundy uppercase">CAPACIDADES ESPECÍFICAS</p>
+                                <p class="text-slate-500 mt-1">SOLO APLICA A CAPACIDADES ESPECÍFICAS. <br> <span class="italic text-[#C5A059]">EJEMPLO: CORREGIDORA 100 PLAZAS.</span></p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        `;
+
+        function renderSlide() {
+            const container = document.getElementById('modalContent');
+
+            // Clear previous animation
+            container.classList.remove('animate-fadeIn');
+            void container.offsetWidth; // trigger reflow
+            container.classList.add('animate-fadeIn');
+
+            if (currentSlideIndex === 0) {
+                container.innerHTML = slide0_HTML;
+            } else if (currentSlideIndex === 1) {
+                container.innerHTML = slide1_HTML;
+            } else if (currentSlideIndex === 2) {
+                container.innerHTML = slide2_HTML;
+            } else if (currentSlideIndex === 3) {
+                container.innerHTML = slide3_HTML;
+            } else if (currentSlideIndex === 4) {
+                container.innerHTML = slide4_HTML;
+            } else if (currentSlideIndex === 5) {
+                container.innerHTML = slide5_HTML;
+            } else if (currentSlideIndex === 6) {
+                container.innerHTML = slide6_HTML;
+            } else if (currentSlideIndex === 7) {
+                container.innerHTML = slide7_HTML;
+            } else if (currentSlideIndex === 8) {
+                container.innerHTML = slide8_HTML;
+            } else if (currentSlideIndex === 9) {
+                container.innerHTML = slide9_HTML;
+            } else if (currentSlideIndex === 10) {
+                container.innerHTML = slide10_HTML;
+            } else {
                 container.innerHTML = `
-            < div class="h-[60vh] flex flex-col items-center justify-center p-12 text-center select-none" >
+            <div class="h-[60vh] flex flex-col items-center justify-center p-12 text-center select-none" >
                         <div class="w-40 h-40 bg-gray-50 rounded-full flex items-center justify-center mb-6 shadow-inner">
                             <span class="text-6xl text-gray-200 font-serif">${currentSlideIndex + 1}</span>
                         </div>
                         <h3 class="text-3xl font-bold text-nwl-burgundy mb-2">Análisis Financiero ${currentSlideIndex + 1}</h3>
                         <p class="text-slate-400 max-w-md mx-auto">Esta diapositiva está reservada para el desglose detallado de la proyección financiera correspondiente.</p>
-                    </div >
+                    </div>
                 `;
             }
         }
