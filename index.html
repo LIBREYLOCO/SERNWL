@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Maestro: Campaña S.E.R. Newland</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Chosen Palette: 
+           Background: Warm Neutral / Cream (#F9F9F7)
+           Primary Text: Deep Navy (#1E293B) - Representing Institutional Authority
+           Accent: Metallic Gold (#C5A059) - Representing "Excellence" and "Reward"
+           Secondary: Soft Gray (#64748B) 
+        */
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #F9F9F7;
+            color: #1E293B;
+        }
+
+        h1, h2, h3, .serif-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .gold-text {
+            color: #C5A059;
+        }
+
+        .gold-bg {
+            background-color: #C5A059;
+        }
+
+        .gold-border {
+            border-color: #C5A059;
+        }
+
+        .card-shadow {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-shadow:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(197, 160, 89, 0.15);
+        }
+
+        .nav-link {
+            position: relative;
+            padding-bottom: 2px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #C5A059;
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px; 
+            margin-left: auto; 
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+
+        /* Script Highlighter */
+        .highlight-term {
+            background-color: rgba(197, 160, 89, 0.2);
+            padding: 0 4px;
+            border-radius: 4px;
+            font-weight: 700;
+            color: #856404;
+        }
+
+        /* Interactive Process Step */
+        .step-active .step-circle {
+            background-color: #C5A059;
+            color: white;
+            border-color: #C5A059;
+        }
+        .step-active .step-line {
+            background-color: #C5A059;
+        }
+    </style>
+    <!-- Application Structure Plan:
+         1. Header: Elegant navigation with logo concept.
+         2. Hero: "The Essence" - Interactive cards defining S.E.R. (Selection, Excellence, Recognition).
+         3. Strategy Dashboard: Data viz justifying the campaign (Opportunity Cost vs. Revenue Recovery).
+         4. Mechanics & Logic: Comparative view of benefits for Referrer vs. Referee.
+         5. The Pitch Simulator: Interactive script roleplay for "Walk-ins" vs "Referrals".
+         6. Implementation Roadmap: Timeline of the process from Launch to Close.
+         7. Materials Gallery: CSS mockups of the "Golden Ticket".
+         
+         Why this structure? It moves from the "Philosophical Why" (Essence) to the "Financial Why" (Dashboard), then to the "How" (Mechanics/Pitch), and finally "Execution" (Roadmap). This equips the user to understand and sell the campaign internally and externally.
+    -->
+</head>
+<body class="antialiased selection:bg-yellow-200 selection:text-slate-900">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-[#1E293B] rounded-full flex items-center justify-center text-[#C5A059] font-serif font-bold text-xl">N</div>
+                <span class="text-xl font-bold tracking-wide text-slate-800">CAMPUS <span class="serif-font gold-text">Strategy Hub</span></span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
+                <a href="#essence" class="nav-link hover:text-[#C5A059] transition">Filosofía S.E.R.</a>
+                <a href="#metrics" class="nav-link hover:text-[#C5A059] transition">Diagnóstico</a>
+                <a href="#mechanics" class="nav-link hover:text-[#C5A059] transition">Mecánica</a>
+                <a href="#scripts" class="nav-link hover:text-[#C5A059] transition">Discurso</a>
+                <a href="#process" class="nav-link hover:text-[#C5A059] transition">Proceso</a>
+            </div>
+            <!-- Mobile Menu Button (Functional but simplified visual) -->
+            <button class="md:hidden text-slate-600">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section: The S.E.R. Concept -->
+    <header id="essence" class="pt-16 pb-12 bg-[#F9F9F7]">
+        <div class="container mx-auto px-6 text-center">
+            <div class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-[#C5A059] uppercase border border-[#C5A059] rounded-full">Estrategia 2026</div>
+            <h1 class="text-4xl md:text-6xl font-bold text-slate-800 mb-6 serif-font">Programa <span class="gold-text">S.E.R.</span> Newland</h1>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-12 leading-relaxed">
+                Una iniciativa estratégica para consolidar nuestros grupos en <strong>San Miguel Allende, Corregidora y Milenio</strong> mediante la atracción de perfiles de alto valor.
+            </p>
+
+            <!-- Interactive Acronym Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- S Card -->
+                <div class="bg-white p-8 rounded-xl card-shadow border-t-4 border-[#C5A059] cursor-pointer group" onclick="toggleCard('s-desc')">
+                    <div class="text-6xl font-serif font-bold text-slate-200 group-hover:text-[#C5A059] transition-colors mb-4">S</div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">Selección</h3>
+                    <p id="s-desc" class="text-slate-600 text-sm opacity-100 transition-opacity duration-300">
+                        Buscamos familias que compartan nuestros valores. No es una puerta abierta, es un filtro de calidad.
+                    </p>
+                </div>
+                <!-- E Card -->
+                <div class="bg-white p-8 rounded-xl card-shadow border-t-4 border-[#1E293B] cursor-pointer group" onclick="toggleCard('e-desc')">
+                    <div class="text-6xl font-serif font-bold text-slate-200 group-hover:text-[#1E293B] transition-colors mb-4">E</div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">Excelencia</h3>
+                    <p id="e-desc" class="text-slate-600 text-sm opacity-100 transition-opacity duration-300">
+                        El motivo del beneficio no es la "urgencia", sino mantener el nivel académico y cultural de nuestros grupos.
+                    </p>
+                </div>
+                <!-- R Card -->
+                <div class="bg-white p-8 rounded-xl card-shadow border-t-4 border-[#C5A059] cursor-pointer group" onclick="toggleCard('r-desc')">
+                    <div class="text-6xl font-serif font-bold text-slate-200 group-hover:text-[#C5A059] transition-colors mb-4">R</div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">Reconocimiento</h3>
+                    <p id="r-desc" class="text-slate-600 text-sm opacity-100 transition-opacity duration-300">
+                        El incentivo económico (30% y 10%) se presenta como un premio al mérito, elevando el estatus de quien lo recibe.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section 2: Strategy Dashboard (Data) -->
+    <!-- Visualization & Content Choices:
+         Goal: Justify the discount strategy using data.
+         Viz: 
+           1. "Capacity Gap": Bar chart comparing current enrollment vs. target capacity. Shows the "White Space" opportunity.
+           2. "Revenue Recovery Model": A split view showing that 70% of tuition (with discount) is infinitely better than 0% of an empty seat.
+         Interaction: Hover over charts for details.
+         Justification: Visualizing the 103 empty seats creates internal urgency and validates the financial sense of a 30% discount.
+         Method: Chart.js.
+    -->
+    <section id="metrics" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-start justify-between mb-10">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold text-slate-800 serif-font mb-4">Diagnóstico de Oportunidad</h2>
+                    <p class="text-slate-600 leading-relaxed">
+                        Actualmente, los campus objetivo cuentan con una infraestructura operativa fija (maestros y aulas activas) con capacidad subutilizada. El costo marginal de cada nuevo alumno es cercano a cero, lo que convierte esta estrategia en utilidad pura.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Chart 1: The Gap -->
+                <div class="bg-[#F9F9F7] p-6 rounded-xl border border-gray-200">
+                    <h3 class="text-lg font-bold text-slate-700 mb-4 text-center">Ocupación Actual vs. Capacidad Disponible</h3>
+                    <div class="chart-container">
+                        <canvas id="capacityChart"></canvas>
+                    </div>
+                    <div class="mt-4 text-center text-sm text-slate-500">
+                        <span class="font-bold text-[#C5A059]">103 Espacios Disponibles</span> representan nuestra meta inmediata.
+                    </div>
+                </div>
+
+                <!-- Chart 2: Financial Logic -->
+                <div class="bg-[#F9F9F7] p-6 rounded-xl border border-gray-200">
+                    <h3 class="text-lg font-bold text-slate-700 mb-4 text-center">Modelo de Recuperación de Ingresos</h3>
+                    <div class="chart-container">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                    <div class="mt-4 text-center text-sm text-slate-500">
+                        El programa <span class="font-bold">S.E.R.</span> convierte espacios vacíos ($0) en activos productivos (70%).
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Mechanics (The Rules) -->
+    <section id="mechanics" class="py-16 bg-[#1E293B] text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold serif-font text-white mb-4">Mecánica de Beneficios</h2>
+                <p class="text-slate-300">Reglas claras para mantener la exclusividad y el control.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Card: New Family -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition duration-300">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-full bg-[#C5A059] flex items-center justify-center text-white font-bold text-xl">1</div>
+                        <h3 class="text-xl font-bold serif-font">Beneficio Nuevo Ingreso</h3>
+                    </div>
+                    <ul class="space-y-4 text-slate-300">
+                        <li class="flex items-start gap-3">
+                            <span class="text-[#C5A059]">✦</span>
+                            <span><strong>Oferta:</strong> 30% de bonificación en colegiatura.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-[#C5A059]">✦</span>
+                            <span><strong>Requisito:</strong> Validar perfil "S.E.R." (Selección y Excelencia).</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-[#C5A059]">✦</span>
+                            <span><strong>Alcance:</strong> Solo campus SMA, Corregidora y Milenio.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card: Ambassador -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition duration-300">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-full bg-slate-700 flex items-center justify-center text-white font-bold text-xl">2</div>
+                        <h3 class="text-xl font-bold serif-font">Beneficio Embajador (Papá Actual)</h3>
+                    </div>
+                    <ul class="space-y-4 text-slate-300">
+                        <li class="flex items-start gap-3">
+                            <span class="text-[#C5A059]">✦</span>
+                            <span><strong>Oferta:</strong> 10% de bonificación en su propia colegiatura.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-[#C5A059]">✦</span>
+                            <span><strong>Requisito:</strong> Referencia exitosa inscrita bajo el programa.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-[#C5A059]">✦</span>
+                            <span><strong>Objetivo:</strong> Convertir a las familias en socios de crecimiento.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: The Pitch Simulator -->
+    <!-- Content Choice: 
+         This is the most critical part for execution. The staff needs to know WHAT to say.
+         Interaction: Toggle buttons change the script content dynamically. JS highlights keywords like "Reconocimiento".
+    -->
+    <section id="scripts" class="py-16 bg-[#F9F9F7]">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-3xl font-bold text-slate-800 serif-font mb-6 text-center">Protocolo de Comunicación</h2>
+            <p class="text-center text-slate-600 mb-8">
+                El lenguaje crea la realidad. Nunca usamos la palabra "Descuento". Usamos <span class="font-bold text-[#C5A059]">"Reconocimiento"</span>.
+            </p>
+
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
+                <!-- Controls -->
+                <div class="flex border-b border-gray-200 bg-gray-50">
+                    <button onclick="setScript('referral')" id="btn-referral" class="flex-1 py-4 text-sm font-bold text-[#C5A059] border-b-2 border-[#C5A059] bg-white transition-colors">
+                        Escenario A: Papá Referido
+                    </button>
+                    <button onclick="setScript('walkin')" id="btn-walkin" class="flex-1 py-4 text-sm font-bold text-slate-500 hover:text-slate-700 transition-colors">
+                        Escenario B: Papá "Walk-in"
+                    </button>
+                </div>
+
+                <!-- Script Content -->
+                <div class="p-8 md:p-12">
+                    <div class="flex items-start gap-4 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center shrink-0">
+                            👤
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-1">Staff de Admisiones dice:</p>
+                            <div id="script-text" class="text-xl leading-relaxed text-slate-700 font-serif italic">
+                                "Bienvenido. La familia Gómez nos ha hablado maravillas de ustedes. Al venir referidos por ellos, su proceso entra automáticamente bajo el criterio <span class="highlight-term">S.E.R. (Selección de Excelencia y Reconocimiento)</span>. Esto significa que, una vez que validemos el perfil académico de su hijo, el colegio les otorgará un <span class="highlight-term">Reconocimiento Económico del 30%</span>, diseñado para familias que suman valor a nuestra comunidad."
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Key Psychological Triggers -->
+                    <div class="mt-8 pt-6 border-t border-gray-100">
+                        <h4 class="text-sm font-bold text-slate-800 mb-3">Gatillos Psicológicos Activos:</h4>
+                        <div id="script-triggers" class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-50 text-blue-800 text-xs rounded-full font-semibold">Pertenencia</span>
+                            <span class="px-3 py-1 bg-yellow-50 text-yellow-800 text-xs rounded-full font-semibold">Exclusividad</span>
+                            <span class="px-3 py-1 bg-green-50 text-green-800 text-xs rounded-full font-semibold">Mérito</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Materials Preview -->
+    <section class="py-16 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-slate-800 serif-font mb-10 text-center">Materiales de Campaña</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                <!-- WhatsApp Golden Ticket Mockup -->
+                <div class="bg-gray-100 p-6 rounded-xl">
+                    <h3 class="text-sm font-bold text-slate-500 mb-4 uppercase">WhatsApp: La "Invitación"</h3>
+                    <div class="bg-white max-w-sm mx-auto rounded-lg shadow-lg overflow-hidden border border-gray-200">
+                        <div class="bg-[#1E293B] p-6 text-center relative overflow-hidden">
+                            <div class="absolute top-0 left-0 w-full h-2 bg-[#C5A059]"></div>
+                            <h4 class="text-[#C5A059] font-serif text-2xl font-bold mb-1">S.E.R. NEWLAND</h4>
+                            <p class="text-slate-400 text-xs tracking-widest uppercase">Selección | Excelencia | Reconocimiento</p>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-slate-700 text-sm mb-4"><strong>Familia Newland:</strong> Tienen el privilegio de nominar a una familia amiga para formar parte de nuestra comunidad en los campus SMA, Corregidora o Milenio.</p>
+                            <div class="bg-[#F9F9F7] p-3 rounded mb-4 text-xs text-slate-600 border-l-2 border-[#C5A059]">
+                                <p>✦ Ellos reciben: <strong>Reconocimiento del 30%</strong></p>
+                                <p>✦ Ustedes reciben: <strong>Bonificación del 10%</strong></p>
+                            </div>
+                            <button class="w-full bg-[#C5A059] text-white py-2 rounded font-bold text-sm hover:bg-[#b08d4b]">NOMINAR FAMILIA</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email Mockup -->
+                <div class="bg-gray-100 p-6 rounded-xl">
+                    <h3 class="text-sm font-bold text-slate-500 mb-4 uppercase">Email Marketing</h3>
+                    <div class="bg-white rounded shadow p-6 border border-gray-200">
+                        <div class="border-b border-gray-100 pb-2 mb-4">
+                            <p class="text-xs text-slate-400">De: Dirección General</p>
+                            <p class="text-sm text-slate-800 font-bold">Asunto: Una distinción especial para su Familia</p>
+                        </div>
+                        <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+                            En Newland, creemos que la calidad de nuestra escuela depende de la calidad de sus familias. Por eso, hemos activado el programa <strong>S.E.R.</strong>
+                        </p>
+                        <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+                            Queremos que los últimos lugares en <strong>Milenio, Corregidora y SMA</strong> sean ocupados por personas que compartan nuestros valores. Si conocen a alguien así, invítenlo.
+                        </p>
+                        <p class="text-xs text-slate-400 mt-4 italic">Dirección General Newland</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Process Roadmap -->
+    <section id="process" class="py-16 bg-[#F9F9F7]">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <h2 class="text-3xl font-bold text-slate-800 serif-font mb-12 text-center">Ruta de Implementación</h2>
+            
+            <div class="relative">
+                <!-- Vertical Line for Mobile / Horizontal for Desktop -->
+                <div class="absolute left-4 top-0 h-full w-1 bg-gray-200 md:hidden"></div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <!-- Step 1 -->
+                    <div class="relative pl-12 md:pl-0 md:text-center group step-active">
+                        <div class="absolute left-0 md:relative md:left-auto md:mx-auto w-8 h-8 rounded-full border-2 border-[#C5A059] bg-[#C5A059] text-white flex items-center justify-center font-bold text-sm z-10 mb-4 step-circle">1</div>
+                        <div class="hidden md:block absolute top-4 left-1/2 w-full h-1 bg-gray-200 -z-0 step-line"></div>
+                        <h4 class="text-lg font-bold text-slate-800 mb-2">Lanzamiento</h4>
+                        <p class="text-sm text-slate-600">Envío del "Golden Ticket" digital vía WhatsApp a la base actual.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative pl-12 md:pl-0 md:text-center group">
+                        <div class="absolute left-0 md:relative md:left-auto md:mx-auto w-8 h-8 rounded-full border-2 border-gray-300 bg-white text-gray-400 flex items-center justify-center font-bold text-sm z-10 mb-4 step-circle group-hover:border-[#C5A059] transition">2</div>
+                        <div class="hidden md:block absolute top-4 left-1/2 w-full h-1 bg-gray-200 -z-0 step-line"></div>
+                        <h4 class="text-lg font-bold text-slate-800 mb-2">Recepción</h4>
+                        <p class="text-sm text-slate-600">El Staff recibe al prospecto. <span class="text-red-500 font-bold">PROHIBIDO</span> decir "descuento". Se menciona "Programa S.E.R."</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative pl-12 md:pl-0 md:text-center group">
+                        <div class="absolute left-0 md:relative md:left-auto md:mx-auto w-8 h-8 rounded-full border-2 border-gray-300 bg-white text-gray-400 flex items-center justify-center font-bold text-sm z-10 mb-4 step-circle group-hover:border-[#C5A059] transition">3</div>
+                        <div class="hidden md:block absolute top-4 left-1/2 w-full h-1 bg-gray-200 -z-0 step-line"></div>
+                        <h4 class="text-lg font-bold text-slate-800 mb-2">El Filtro</h4>
+                        <p class="text-sm text-slate-600">Breve entrevista de validación. "Perfecto, cumplen con el perfil de Excelencia".</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative pl-12 md:pl-0 md:text-center group">
+                        <div class="absolute left-0 md:relative md:left-auto md:mx-auto w-8 h-8 rounded-full border-2 border-gray-300 bg-white text-gray-400 flex items-center justify-center font-bold text-sm z-10 mb-4 step-circle group-hover:border-[#C5A059] transition">4</div>
+                        <h4 class="text-lg font-bold text-slate-800 mb-2">El Cierre</h4>
+                        <p class="text-sm text-slate-600">Firma para asegurar el "Cupo de Reconocimiento" antes de que se agote.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#1E293B] text-slate-400 py-8 border-t border-slate-700">
+        <div class="container mx-auto px-6 text-center text-sm">
+            <p>&copy; 2026 Colegio Newland. Estrategia Confidencial de Admisiones.</p>
+            <p class="mt-2 text-[#C5A059]">San Miguel Allende | Corregidora | Milenio</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Data Configuration for Charts
+        // Source Logic: 240 current students, 103 empty spots. Total Capacity approx 343.
+        const enrollmentData = {
+            labels: ['Alumnos Actuales', 'Oportunidad (S.E.R.)'],
+            datasets: [{
+                data: [240, 103],
+                backgroundColor: ['#1E293B', '#C5A059'], // Navy for filled, Gold for opportunity
+                borderWidth: 0
+            }]
+        };
+
+        const revenueData = {
+            labels: ['Lugar Vacío', 'Lugar S.E.R. (-30%)', 'Lugar Full Price'],
+            datasets: [{
+                label: 'Ingreso Percibido',
+                data: [0, 70, 100],
+                backgroundColor: ['#CBD5E1', '#C5A059', '#1E293B'],
+                borderRadius: 4
+            }]
+        };
+
+        // Initialize Charts on Load
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Chart 1: Capacity Gap (Doughnut)
+            const ctx1 = document.getElementById('capacityChart').getContext('2d');
+            new Chart(ctx1, {
+                type: 'doughnut',
+                data: enrollmentData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ` ${context.label}: ${context.raw} Estudiantes`;
+                                }
+                            }
+                        }
+                    },
+                    cutout: '60%'
+                }
+            });
+
+            // Chart 2: Revenue Model (Bar)
+            const ctx2 = document.getElementById('revenueChart').getContext('2d');
+            new Chart(ctx2, {
+                type: 'bar',
+                data: revenueData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { 
+                            beginAtZero: true,
+                            title: { display: true, text: '% de Colegiatura' }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+        });
+
+        // Interactive Script Logic
+        const scripts = {
+            referral: {
+                text: `"Bienvenido. La familia <span class="italic font-normal text-gray-400">[Apellido]</span> nos ha hablado maravillas de ustedes. Al venir referidos por ellos, su proceso entra automáticamente bajo el criterio <span class="highlight-term">S.E.R. (Selección de Excelencia y Reconocimiento)</span>. Esto significa que, una vez que validemos el perfil académico de su hijo, el colegio les otorgará un <span class="highlight-term">Reconocimiento Económico del 30%</span> en la colegiatura, diseñado para familias que suman valor a nuestra comunidad."`,
+                triggers: [
+                    {text: "Validación Social", color: "bg-blue-50 text-blue-800"},
+                    {text: "Exclusividad", color: "bg-yellow-50 text-yellow-800"},
+                    {text: "Premio", color: "bg-green-50 text-green-800"}
+                ]
+            },
+            walkin: {
+                text: `"Señor/a, le tengo una excelente noticia. Para el grado de su hijo en este campus, Dirección ha activado el protocolo <span class="highlight-term">S.E.R.</span> Como buscamos consolidar este grupo con perfiles de <span class="highlight-term">Excelencia</span>, si su hijo aprueba la evaluación y la entrevista familiar, se hacen acreedores al beneficio de <span class="highlight-term">Reconocimiento</span>, que subsidia el 30% de su colegiatura. Es nuestra forma de invertir en las mejores familias."`,
+                triggers: [
+                    {text: "Suerte/Oportunidad", color: "bg-purple-50 text-purple-800"},
+                    {text: "Escasez", color: "bg-red-50 text-red-800"},
+                    {text: "Inversión Mutua", color: "bg-teal-50 text-teal-800"}
+                ]
+            }
+        };
+
+        function setScript(type) {
+            // Update Text
+            const textBox = document.getElementById('script-text');
+            textBox.style.opacity = '0';
+            setTimeout(() => {
+                textBox.innerHTML = scripts[type].text;
+                textBox.style.opacity = '1';
+            }, 200);
+
+            // Update Triggers
+            const triggerBox = document.getElementById('script-triggers');
+            triggerBox.innerHTML = scripts[type].triggers.map(t => 
+                `<span class="px-3 py-1 ${t.color} text-xs rounded-full font-semibold transition-all hover:scale-105">${t.text}</span>`
+            ).join('');
+
+            // Update Buttons State
+            const btnReferral = document.getElementById('btn-referral');
+            const btnWalkin = document.getElementById('btn-walkin');
+
+            if (type === 'referral') {
+                btnReferral.className = "flex-1 py-4 text-sm font-bold text-[#C5A059] border-b-2 border-[#C5A059] bg-white transition-colors";
+                btnWalkin.className = "flex-1 py-4 text-sm font-bold text-slate-500 hover:text-slate-700 transition-colors bg-gray-50";
+            } else {
+                btnWalkin.className = "flex-1 py-4 text-sm font-bold text-[#C5A059] border-b-2 border-[#C5A059] bg-white transition-colors";
+                btnReferral.className = "flex-1 py-4 text-sm font-bold text-slate-500 hover:text-slate-700 transition-colors bg-gray-50";
+            }
+        }
+
+        // Toggle Philosophy Cards (Simple Mobile Interaction)
+        function toggleCard(id) {
+            const el = document.getElementById(id);
+            // In a real app, this might expand more content. 
+            // Currently serves as a visual feedback placeholder.
+            el.classList.add('text-slate-800');
+            setTimeout(() => {
+                el.classList.remove('text-slate-800');
+            }, 1000);
+        }
+
+    </script>
+
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</body>
+</html>
