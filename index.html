@@ -682,265 +682,87 @@
         }
 
 
-                    // Slide 0: Matrícula S:E:R
-                    const slide0_HTML = `
-                    <div class="p-4 md:p-12">
-                        <div class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-[#C5A059]/30 pb-4">
-                            <h2 class="text-3xl md:text-5xl text-nwl-burgundy serif-font">MATRÍCULA <span class="text-[#C5A059]">S:E:R</span></h2>
-                            <span class="text-slate-500 font-light text-xl">2025-26</span>
-                        </div>
-                        <div class="overflow-x-auto shadow-sm rounded-lg border border-gray-100">
-                            <table class="w-full text-sm text-center border-collapse">
-                                <thead>
-                                    <tr class="bg-[#A49E8D] text-white uppercase text-xs tracking-wider">
-                                        <th class="p-3 text-left w-1/4">Alumnos</th>
-                                        <th class="p-3">2025-26<br>Matrícula</th>
-                                        <th class="p-3">Alumnos Ciclo</th>
-                                        <th class="p-3">2025-26<br>Espacios sin Costo</th>
-                                        <th class="p-3">2026-27<br>Espacios sin Costo</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="text-slate-700 divide-y divide-gray-200 bg-white">
-                                    <tr><td class="p-4" colspan="5">Detalles de Matrícula (Datos Pendientes)</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    `;
+        // Generate slides from PDF images
+        // Total of 12 slides from the PDF
+        const totalPdfSlides = 12;
+        const slides = [];
 
+        for (let i = 0; i < totalPdfSlides; i++) {
+            const slideNumber = String(i).padStart(2, '0');
+            const slideHTML = `
+                        <div class="p-4 md:p-8 flex items-center justify-center bg-white">
+                            <img src="pdf_slides/slide_${slideNumber}.png" 
+                                 alt="Slide ${i + 1} - Programa S.E.R. Newland" 
+                                 class="w-full h-auto object-contain rounded-lg shadow-sm"
+                                 style="max-height: 85vh;">
+                        </div>
+                        `;
+            slides.push(slideHTML);
+        }
 
-                    // Slide 1 (Index 1): Presupuesto Global 2025-26
-                    const slide1_HTML = `
-                    <div class="p-4 md:p-6 text-[10px] md:text-xs">
-                        <div class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-[#C5A059]/30 pb-2">
-                            <h2 class="text-xl md:text-3xl text-nwl-burgundy serif-font">PRESUPUESTO <span class="text-[#C5A059]">Global</span></h2>
-                            <span class="text-slate-500 font-light text-lg">2025-26</span>
-                        </div>
-                        <div class="h-64 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-200">
-                            <p class="text-slate-400">Datos pendientes de cargar.</p>
-                        </div>
-                    </div>
-                    `;
+        let currentSlideIndex = 0;
+        const totalSlides = slides.length;
 
-                    // Slide 2 (Index 2): Programa S.E.R.
-                    const slide2_HTML = `
-                    <div class="p-4 md:p-6 text-[10px] md:text-xs">
-                        <div class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-[#C5A059]/30 pb-2">
-                            <h2 class="text-xl md:text-3xl text-nwl-burgundy serif-font">Programa <span class="text-[#C5A059]">S.E.R.</span></h2>
-                        </div>
-                        <div class="h-64 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-200">
-                            <p class="text-slate-400">Datos pendientes de cargar.</p>
-                        </div>
-                    </div>
-                    `;
+        // --- Functions ---
 
-                    // Slide 3 (Index 3): Resumen Global
-                    const slide3_HTML = `
-                    <div class="p-4 md:p-6 text-[10px] md:text-xs">
-                        <div class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-[#C5A059]/30 pb-2">
-                            <h2 class="text-xl md:text-3xl text-nwl-burgundy serif-font">Programa <span class="text-[#C5A059]">S.E.R.</span></h2>
-                            <span class="text-slate-500 font-light text-lg">Resumen Global</span>
-                        </div>
-                        <div class="h-64 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-200">
-                            <p class="text-slate-400">Datos pendientes de cargar.</p>
-                        </div>
-                    </div>
-                    `;
-
-                    // Slide 4 (Index 4): Egreso Presupuesto
-                    const slide4_HTML = `
-                    <div class="p-4 md:p-6 text-[10px] md:text-xs">
-                        <div class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-[#C5A059]/30 pb-2">
-                            <h2 class="text-xl md:text-3xl text-nwl-burgundy serif-font">EGRESO <span class="text-[#C5A059]">Presupuesto</span></h2>
-                            <div class="text-right">
-                                <span class="text-slate-500 font-light text-lg">2025-26</span>
-                            </div>
-                        </div>
-                        <div class="h-64 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-200">
-                            <p class="text-slate-400">Datos pendientes de cargar.</p>
-                        </div>
-                    </div>
-                    `;
-
-                    // Slide 5 (Index 5): Resumen 2025-26
-                    const slide5_HTML = `
-                    <div class="p-4 md:p-6 text-[10px] md:text-xs">
-                        <div class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-[#C5A059]/30 pb-2">
-                            <h2 class="text-xl md:text-3xl text-nwl-burgundy serif-font">RESUMEN <span class="text-[#C5A059]">2025-26</span></h2>
-                        </div>
-                        <div class="h-64 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-200">
-                            <p class="text-slate-400">Datos pendientes de cargar.</p>
-                        </div>
-                    </div>
-                    `;
-                    // Slide 6 (Index 5): Resumen CON S.E.R.
-                    const slide6_HTML = `
-                    <div class="p-4 md:p-6 text-[10px] md:text-xs">
-                        <div class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-[#C5A059]/30 pb-2">
-                            <h2 class="text-xl md:text-3xl text-nwl-burgundy serif-font">RESUMEN <span class="text-[#C5A059]">CON S.E.R.</span></h2>
-                        </div>
-                        <div class="h-64 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-200">
-                            <p class="text-slate-400">Datos pendientes de cargar.</p>
-                        </div>
-                    </div>
-                    `;
-
-                    // Slide 7 (Index 6): Programa PIN 60%
-                    const slide7_HTML = `
-                    <div class="p-4 md:p-6 text-[10px] md:text-xs">
-                        <div class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-[#C5A059]/30 pb-2">
-                            <h2 class="text-xl md:text-3xl text-nwl-burgundy serif-font">PROGRAMA <span class="text-[#C5A059]">PIN 60%</span></h2>
-                        </div>
-                        <div class="h-64 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-200">
-                            <p class="text-slate-400">Datos pendientes de cargar.</p>
-                        </div>
-                    </div>
-                    `;
-
-                    // Slide 8 (Index 7): Resumen SER AL 60%
-                    const slide8_HTML = `
-                    <div class="p-4 md:p-6 text-[10px] md:text-xs">
-                        <div class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-[#C5A059]/30 pb-2">
-                            <h2 class="text-xl md:text-3xl text-nwl-burgundy serif-font">RESUMEN <span class="text-[#C5A059]">SER AL 60%</span></h2>
-                        </div>
-                        <div class="h-64 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-200">
-                            <p class="text-slate-400">Datos pendientes de cargar.</p>
-                        </div>
-                    </div>
-                    `;
-
-                    // Slide 9 (Index 8): Resumen CON S.E.R. 60%
-                    const slide9_HTML = `
-                    <div class="p-4 md:p-6 text-[10px] md:text-xs">
-                        <div class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-[#C5A059]/30 pb-2">
-                            <h2 class="text-xl md:text-3xl text-nwl-burgundy serif-font">RESUMEN <span class="text-[#C5A059]">CON S.E.R. 60%</span></h2>
-                        </div>
-                        <div class="h-64 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-200">
-                            <p class="text-slate-400">Datos pendientes de cargar.</p>
-                        </div>
-                    </div>
-                    `;
-
-                    // Slide 11 (Index 10): Condiciones del Programa S.E.R.
-                    const slide10_HTML = `
-                    <div class="p-4 md:p-8 text-xs md:text-sm">
-                        <div class="flex flex-col md:flex-row justify-between items-end mb-8 border-b border-[#C5A059]/30 pb-4">
-                            <h2 class="text-2xl md:text-4xl text-nwl-burgundy serif-font uppercase">
-                                Condiciones <span class="text-[#C5A059]">del Programa S.E.R.</span></h2>
-                        </div>
-                        <div class="max-w-4xl mx-auto bg-gray-50 rounded-xl p-6 md:p-10 border border-gray-100 shadow-sm">
-                            <ol class="space-y-6 text-slate-700">
-                                <li class="flex gap-4">
-                                    <span class="flex-shrink-0 w-8 h-8 rounded-full bg-[#C5A059] text-white flex items-center justify-center font-bold font-serif">1</span>
-                                    <div class="pt-1">
-                                        <p class="font-bold text-nwl-burgundy uppercase">APLICA EL DESCUENTO SOLO COMO PRONTO PAGO</p>
-                                        <p class="text-slate-500 mt-1">SIN NINGÚN DESCUENTO ADICIONAL.</p>
-                                    </div>
-                                </li>
-                                <li class="flex gap-4">
-                                    <span class="flex-shrink-0 w-8 h-8 rounded-full bg-[#C5A059] text-white flex items-center justify-center font-bold font-serif">2</span>
-                                    <div class="pt-1">
-                                        <p class="font-bold text-nwl-burgundy uppercase">NO APLICAN BECAS ADICIONALES</p>
-                                        <p class="text-slate-500 mt-1">(SE TENDRÁ QUE ELEGIR LO QUE MÁS LE CONVENGA).</p>
-                                    </div>
-                                </li>
-                                <li class="flex gap-4">
-                                    <span class="flex-shrink-0 w-8 h-8 rounded-full bg-[#C5A059] text-white flex items-center justify-center font-bold font-serif">3</span>
-                                    <div class="pt-1">
-                                        <p class="font-bold text-nwl-burgundy uppercase">CONDICIÓN DE REFERIDO</p>
-                                        <p class="text-slate-500 mt-1">SI EL ALUMNO REFERIDO ENTRA EN MORA O SALE DEL COLEGIO, EL DESCUENTO DEL 10% DEL REFERIDO NO APLICA.</p>
-                                    </div>
-                                </li>
-                                <li class="flex gap-4">
-                                    <span class="flex-shrink-0 w-8 h-8 rounded-full bg-[#C5A059] text-white flex items-center justify-center font-bold font-serif">4</span>
-                                    <div class="pt-1">
-                                        <p class="font-bold text-nwl-burgundy uppercase">CAPACIDADES ESPECÍFICAS</p>
-                                        <p class="text-slate-500 mt-1">SOLO APLICA A CAPACIDADES ESPECÍFICAS. <br> <span class="italic text-[#C5A059]">EJEMPLO: CORREGIDORA 100 PLAZAS.</span></p>
-                                    </div>
-                                </li>
-                            </ol>
-                        </div>
-                    </div>
-                    `;
-
-                    // Array of all slides
-                    const slides = [
-                    slide0_HTML,
-                    slide1_HTML,
-                    slide2_HTML,
-                    slide3_HTML,
-                    slide4_HTML,
-                    slide5_HTML,
-                    slide6_HTML,
-                    slide7_HTML,
-                    slide8_HTML,
-                    slide9_HTML,
-                    slide10_HTML
-                    ];
-
-                    let currentSlideIndex = 0;
-                    const totalSlides = slides.length;
-
-                    // --- Functions ---
-
-                    function renderGrid() {
+        function renderGrid() {
             const gridContainer = document.getElementById('galleryGrid');
-                    gridContainer.innerHTML = ''; // Clear
+            gridContainer.innerHTML = ''; // Clear
 
             slides.forEach((slideContent, index) => {
                 const thumbWrapper = document.createElement('div');
-                    thumbWrapper.className = "cursor-pointer group relative bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden aspect-[4/3] flex flex-col";
+                thumbWrapper.className = "cursor-pointer group relative bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden aspect-[4/3] flex flex-col";
                 thumbWrapper.onclick = () => openModal(index);
 
-                    // Thumbnail Content (Scaled)
-                    // We inject the HTML and scale it down to fit.
-                    // Using transform: scale() on a container inside.
+                // Thumbnail Content (Scaled)
+                // We inject the HTML and scale it down to fit.
+                // Using transform: scale() on a container inside.
 
-                    const scaleContainer = document.createElement('div');
-                    scaleContainer.className = "absolute top-0 left-0 w-[400%] h-[400%] origin-top-left transform scale-[0.25] pointer-events-none p-4 bg-white"; // 4x size scaled down
-                    scaleContainer.innerHTML = slideContent;
+                const scaleContainer = document.createElement('div');
+                scaleContainer.className = "absolute top-0 left-0 w-[400%] h-[400%] origin-top-left transform scale-[0.25] pointer-events-none p-4 bg-white"; // 4x size scaled down
+                scaleContainer.innerHTML = slideContent;
 
-                    // Overlay to prevent interaction and add hover effect
-                    const overlay = document.createElement('div');
-                    overlay.className = "absolute inset-0 bg-transparent group-hover:bg-nwl-burgundy/5 transition-colors z-10";
+                // Overlay to prevent interaction and add hover effect
+                const overlay = document.createElement('div');
+                overlay.className = "absolute inset-0 bg-transparent group-hover:bg-nwl-burgundy/5 transition-colors z-10";
 
-                    // Top Bar
-                    const topBar = document.createElement('div');
-                    topBar.className = "absolute top-0 left-0 w-full h-1 bg-slate-200 group-hover:bg-[#C5A059] transition-colors z-20";
+                // Top Bar
+                const topBar = document.createElement('div');
+                topBar.className = "absolute top-0 left-0 w-full h-1 bg-slate-200 group-hover:bg-[#C5A059] transition-colors z-20";
 
-                    thumbWrapper.appendChild(scaleContainer);
-                    thumbWrapper.appendChild(overlay);
-                    thumbWrapper.appendChild(topBar);
+                thumbWrapper.appendChild(scaleContainer);
+                thumbWrapper.appendChild(overlay);
+                thumbWrapper.appendChild(topBar);
 
-                    gridContainer.appendChild(thumbWrapper);
+                gridContainer.appendChild(thumbWrapper);
             });
         }
 
-                    function openModal(index) {
-                        currentSlideIndex = index;
-                    renderSlide();
-                    document.getElementById('galleryModal').classList.remove('hidden');
-                    document.body.style.overflow = 'hidden';
+        function openModal(index) {
+            currentSlideIndex = index;
+            renderSlide();
+            document.getElementById('galleryModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
         }
 
-                    function closeModal() {
-                        document.getElementById('galleryModal').classList.add('hidden');
-                    document.body.style.overflow = 'auto';
-                        // Clean up modal content to avoid duplicates or wrong sizing next time
-                        setTimeout(() => {
-                            const modalContent = document.getElementById('modalContent');
-                    if (modalContent) modalContent.innerHTML = '';
-                        }, 300);
-                    }
+        function closeModal() {
+            document.getElementById('galleryModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            // Clean up modal content to avoid duplicates or wrong sizing next time
+            setTimeout(() => {
+                const modalContent = document.getElementById('modalContent');
+                if (modalContent) modalContent.innerHTML = '';
+            }, 300);
+        }
 
-                    function openChartModal(canvasId) {
-                        const canvas = document.getElementById(canvasId);
-                    if (!canvas) return;
+        function openChartModal(canvasId) {
+            const canvas = document.getElementById(canvasId);
+            if (!canvas) return;
 
-                    const imgUrl = canvas.toDataURL('image/png');
-                    const container = document.getElementById('modalContent');
+            const imgUrl = canvas.toDataURL('image/png');
+            const container = document.getElementById('modalContent');
 
-                    container.innerHTML = `
+            container.innerHTML = `
                     <div class="p-4 md:p-8 flex flex-col items-center justify-center h-full">
                         <h3 class="text-2xl font-bold text-nwl-burgundy mb-6 serif-font">Vista Ampliada</h3>
                         <div class="bg-white p-4 rounded-xl shadow-lg border border-gray-100 max-w-4xl w-full">
@@ -949,24 +771,24 @@
                     </div>
                     `;
 
-                    document.getElementById('galleryModal').classList.remove('hidden');
-                    document.body.style.overflow = 'hidden';
-                    }
-
-                    function changeSlide(direction) {
-                        currentSlideIndex += direction;
-                    if (currentSlideIndex < 0) currentSlideIndex = totalSlides - 1;
-            if (currentSlideIndex >= totalSlides) currentSlideIndex = 0;
-                    renderSlide();
+            document.getElementById('galleryModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
         }
 
-                    function renderSlide() {
+        function changeSlide(direction) {
+            currentSlideIndex += direction;
+            if (currentSlideIndex < 0) currentSlideIndex = totalSlides - 1;
+            if (currentSlideIndex >= totalSlides) currentSlideIndex = 0;
+            renderSlide();
+        }
+
+        function renderSlide() {
             const container = document.getElementById('modalContent');
 
-                    if (slides[currentSlideIndex]) {
-                        container.innerHTML = slides[currentSlideIndex];
+            if (slides[currentSlideIndex]) {
+                container.innerHTML = slides[currentSlideIndex];
             } else {
-                        container.innerHTML = `
+                container.innerHTML = `
                     <div class="h-[60vh] flex flex-col items-center justify-center p-12 text-center select-none">
                         <div class="w-40 h-40 bg-gray-50 rounded-full flex items-center justify-center mb-6 shadow-inner">
                             <span class="text-6xl text-gray-200 font-serif">${currentSlideIndex + 1}</span>
@@ -980,66 +802,66 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
-                        renderGrid();
+            renderGrid();
 
-                    // Chart.js Implementations
-                    const ctx1 = document.getElementById('capacityChart').getContext('2d');
-                    new Chart(ctx1, {
-                        type: 'doughnut',
-                    data: {
-                        labels: ['Ocupados', 'Disponibles'],
+            // Chart.js Implementations
+            const ctx1 = document.getElementById('capacityChart').getContext('2d');
+            new Chart(ctx1, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Ocupados', 'Disponibles'],
                     datasets: [{
                         data: [350, 103],
-                    backgroundColor: ['#E2E8F0', '#C5A059'],
-                    borderWidth: 0,
-                    hoverOffset: 4
+                        backgroundColor: ['#E2E8F0', '#C5A059'],
+                        borderWidth: 0,
+                        hoverOffset: 4
                     }]
                 },
-                    options: {
-                        responsive: true,
+                options: {
+                    responsive: true,
                     maintainAspectRatio: false,
                     cutout: '75%',
                     plugins: {
                         legend: {
-                        position: 'bottom',
-                    labels: {usePointStyle: true, font: {family: "'Lato', sans-serif" } }
+                            position: 'bottom',
+                            labels: { usePointStyle: true, font: { family: "'Lato', sans-serif" } }
                         }
                     }
                 }
             });
 
-                    const ctx2 = document.getElementById('revenueChart').getContext('2d');
-                    new Chart(ctx2, {
-                        type: 'bar',
-                    data: {
-                        labels: ['Ingreso Actual', 'Potencial S.E.R.'],
+            const ctx2 = document.getElementById('revenueChart').getContext('2d');
+            new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: ['Ingreso Actual', 'Potencial S.E.R.'],
                     datasets: [{
                         label: 'Millones MXN',
-                    data: [25.5, 31.2],
-                    backgroundColor: ['#E2E8F0', '#5D2A2C'],
-                    borderRadius: 4,
+                        data: [25.5, 31.2],
+                        backgroundColor: ['#E2E8F0', '#5D2A2C'],
+                        borderRadius: 4,
                     }]
                 },
-                    options: {
-                        responsive: true,
+                options: {
+                    responsive: true,
                     maintainAspectRatio: false,
                     scales: {
-                        y: {beginAtZero: true, grid: {display: false } },
-                    x: {grid: {display: false } }
+                        y: { beginAtZero: true, grid: { display: false } },
+                        x: { grid: { display: false } }
                     },
                     plugins: {
-                        legend: {display: false }
+                        legend: { display: false }
                     }
                 }
             });
         });
 
-                    // Keyboard Navigation
-                    document.addEventListener('keydown', function (event) {
+        // Keyboard Navigation
+        document.addEventListener('keydown', function (event) {
             if (!document.getElementById('galleryModal').classList.contains('hidden')) {
                 if (event.key === "Escape") closeModal();
-                    if (event.key === "ArrowLeft") changeSlide(-1);
-                    if (event.key === "ArrowRight") changeSlide(1);
+                if (event.key === "ArrowLeft") changeSlide(-1);
+                if (event.key === "ArrowRight") changeSlide(1);
             }
         });
 
