@@ -16,6 +16,15 @@
                             gold: '#C5A059',    // Existing Gold (matches well)
                             cream: '#F9F9F7',
                         }
+                    },
+                    animation: {
+                        fadeIn: 'fadeIn 0.3s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.95)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' },
+                        }
                     }
                 }
             }
@@ -137,6 +146,8 @@
                 <a href="#mechanics" class="nav-link hover:text-[#C5A059] transition">Mecánica</a>
                 <a href="#scripts" class="nav-link hover:text-[#C5A059] transition">Discurso</a>
                 <a href="#process" class="nav-link hover:text-[#C5A059] transition">Proceso</a>
+                <a href="#analysis"
+                    class="nav-link hover:text-[#C5A059] transition font-bold text-nwl-burgundy">Análisis Numérico</a>
             </div>
             <!-- Mobile Menu Button -->
             <button class="md:hidden text-nwl-burgundy text-2xl">☰</button>
@@ -480,6 +491,76 @@
         </div>
     </section>
 
+    <!-- Section 7: Numerical Analysis Gallery -->
+    <section id="analysis" class="py-16 bg-white border-t border-gray-200">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-nwl-burgundy serif-font mb-10 text-center">Análisis Numérico</h2>
+            <p class="text-center text-slate-600 mb-8 max-w-2xl mx-auto">
+                Desglose detallado de la proyección financiera y de matrícula. Haga clic en cualquier tarjeta para ver
+                el detalle completo.
+            </p>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <!-- Slide 1: Matrícula Table (Thumbnail) -->
+                <div class="cursor-pointer group relative bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden aspect-[4/3] flex flex-col"
+                    onclick="openModal(0)">
+                    <div class="bg-nwl-burgundy h-2 w-full"></div>
+                    <div
+                        class="p-2 flex-1 flex flex-col items-center justify-center bg-gray-50 group-hover:bg-white transition">
+                        <span class="text-3xl">📊</span>
+                        <span class="text-xs font-bold text-nwl-burgundy mt-2 text-center">MATRÍCULA S:E:R</span>
+                        <span class="text-[10px] text-slate-400">2025-26</span>
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-nwl-burgundy/0 group-hover:bg-nwl-burgundy/5 transition duration-300">
+                    </div>
+                </div>
+
+                <!-- Slides 2-17: Placeholders -->
+                <script>
+                    for (let i = 2; i <= 17; i++) {
+                        document.write(`
+                            <div class="cursor-pointer group relative bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden aspect-[4/3] flex flex-col" onclick="openModal(${i - 1})">
+                                <div class="bg-slate-200 h-2 w-full group-hover:bg-[#C5A059] transition-colors"></div>
+                                <div class="p-2 flex-1 flex flex-col items-center justify-center bg-gray-50 group-hover:bg-white transition">
+                                    <span class="text-xl text-slate-300 font-serif overflow-hidden opacity-50 select-none">${i}</span>
+                                    <span class="text-[10px] text-slate-400 mt-1">Análisis ${i}</span>
+                                </div>
+                            </div>
+                        `);
+                    }
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Modal -->
+    <div id="galleryModal"
+        class="fixed inset-0 z-[60] hidden bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-8">
+        <!-- Close Button -->
+        <button onclick="closeModal()"
+            class="absolute top-4 right-4 text-white/50 hover:text-white text-4xl font-light">&times;</button>
+
+        <!-- Navigation Buttons -->
+        <button onclick="changeSlide(-1)"
+            class="absolute left-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-[#C5A059] text-4xl md:text-6xl font-light transition hover:scale-110 hidden md:block">&#8249;</button>
+        <button onclick="changeSlide(1)"
+            class="absolute right-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-[#C5A059] text-4xl md:text-6xl font-light transition hover:scale-110 hidden md:block">&#8250;</button>
+
+        <!-- Content Container -->
+        <div class="bg-white w-full max-w-6xl max-h-[90vh] overflow-y-auto rounded-lg shadow-2xl relative animate-fadeIn"
+            id="modalContent">
+            <!-- Dynamic Content Injected Here -->
+        </div>
+
+        <!-- Mobile Nav (Bottom) -->
+        <div class="absolute bottom-4 left-0 w-full flex justify-center gap-8 md:hidden">
+            <button onclick="changeSlide(-1)" class="text-white text-3xl px-4 py-2 bg-white/10 rounded-full">←</button>
+            <button onclick="changeSlide(1)" class="text-white text-3xl px-4 py-2 bg-white/10 rounded-full">→</button>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-nwl-burgundy text-slate-400 py-8 border-t border-black/20">
         <div class="container mx-auto px-6 text-center text-sm">
@@ -616,9 +697,130 @@
             }, 1000);
         }
 
-    </script>
+        // --- Gallery Logic ---
+        let currentSlideIndex = 0;
+        const totalSlides = 17;
 
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+        // Slide Data Definition
+        // Slide 0: Matrícula S:E:R Table - Recreated from User Image
+        const slide0_HTML = `
+            <div class="p-4 md:p-12">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-[#C5A059]/30 pb-4">
+                    <h2 class="text-3xl md:text-5xl text-nwl-burgundy serif-font">MATRÍCULA <span class="text-[#C5A059]">S:E:R</span></h2>
+                    <span class="text-slate-500 font-light text-xl">2025-26</span>
+                </div>
+                
+                <div class="overflow-x-auto shadow-sm rounded-lg border border-gray-100">
+                    <table class="w-full text-sm text-center border-collapse">
+                        <thead>
+                            <tr class="bg-[#A49E8D] text-white uppercase text-xs tracking-wider">
+                                <th class="p-3 text-left w-1/4">Alumnos</th>
+                                <th class="p-3">2025-26<br>Matrícula</th>
+                                <th class="p-3">Alumnos Ciclo</th>
+                                <th class="p-3">2025-26<br>Espacios sin Costo</th>
+                                <th class="p-3">2026-27<br>Espacios sin Costo</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-slate-700 divide-y divide-gray-200 bg-white">
+                            <!-- Helper to generate rows based on image data -->
+                           ${[
+                ['MATERNAL', '', 6, 9, ''],
+                ['KINDER 1', '', 19, 6, 20],
+                ['KINDER 2', '', 24, 1, 10], // Note: Image shows blank for matricula col
+                ['KINDER 3', '', 12, 13, 6],
+                ['PRIMERO PRIMARIA', '', 15, 10, 15],
+                ['SEGUNDO PRIMARIA', '', 21, 4, 13],
+                ['TERCERO PRIMARIA', '', 20, 5, 8],
+                ['CUARTO PRIMARIA', '', 12, 13, 9],
+                ['QUINTO PRIMARIA', '', 10, 15, 15],
+                ['SEXTO PRIMARIA', '', 19, 6, 17],
+                ['PRIMERO SECUNDARIA', '', 17, 8, 10],
+                ['SEGUNDO SECUNDARIA', '', 28, 0, 11],
+                ['TERCERO SECUNDARIA', '', 26, 0, 3],
+                ['PRIMERO PREPARATORIA', '', 12, 13, 4],
+                ['SEGUNDO PREPARATORIA', '', 0, '', 15], // Greyed out in original?
+                ['TERCERO PREPARATORIA', '', 0, '', ''],
+            ].map((row, i) => {
+                // Alternating rows
+                const bgClass = (i % 2 === 0) ? 'bg-[#F9F9F7]' : 'bg-white';
+                const isPrep = row[0].includes('PREPARATORIA');
+
+                return `
+                                <tr class="${bgClass} hover:bg-[#C5A059]/10 transition duration-150">
+                                    <td class="p-2 text-left font-bold text-nwl-burgundy border-r border-gray-100 pl-4">${row[0]}</td>
+                                    <td class="p-2 border-r border-gray-100 bg-opacity-50"></td> <!-- Empty column in source -->
+                                    <td class="p-2 text-blue-600 font-bold border-r border-gray-100 text-lg">${row[2]}</td>
+                                    <td class="p-2 border-r border-gray-100">${row[3] !== '' ? row[3] : '<span class="inline-block w-full h-1 bg-gray-200/50"></span>'}</td>
+                                    <td class="p-2">${row[4] !== '' ? row[4] : '<span class="inline-block w-full h-1 bg-gray-200/50"></span>'}</td>
+                                </tr>`;
+            }).join('')}
+                            
+                            <!-- Totals Row -->
+                            <tr class="bg-nwl-burgundy text-white font-bold border-t-4 border-[#C5A059]">
+                                <td class="p-4 text-left pl-4">TOTALES</td>
+                                <td class="p-4"></td>
+                                <td class="p-4 text-xl">241</td>
+                                <td class="p-4 text-xl">103</td>
+                                <td class="p-4 text-xl">157</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        `;
+
+        function openModal(index) {
+            currentSlideIndex = index;
+            renderSlide();
+            document.getElementById('galleryModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('galleryModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function changeSlide(direction) {
+            currentSlideIndex += direction;
+            if (currentSlideIndex < 0) currentSlideIndex = totalSlides - 1;
+            if (currentSlideIndex >= totalSlides) currentSlideIndex = 0;
+            renderSlide();
+        }
+
+        function renderSlide() {
+            const container = document.getElementById('modalContent');
+
+            // Clear previous animation
+            container.classList.remove('animate-fadeIn');
+            void container.offsetWidth; // trigger reflow
+            container.classList.add('animate-fadeIn');
+
+            if (currentSlideIndex === 0) {
+                container.innerHTML = slide0_HTML;
+            } else {
+                container.innerHTML = `
+                    <div class="h-[60vh] flex flex-col items-center justify-center p-12 text-center select-none">
+                        <div class="w-40 h-40 bg-gray-50 rounded-full flex items-center justify-center mb-6 shadow-inner">
+                            <span class="text-6xl text-gray-200 font-serif">${currentSlideIndex + 1}</span>
+                        </div>
+                        <h3 class="text-3xl font-bold text-nwl-burgundy mb-2">Análisis Financiero ${currentSlideIndex + 1}</h3>
+                        <p class="text-slate-400 max-w-md mx-auto">Esta diapositiva está reservada para el desglose detallado de la proyección financiera correspondiente.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', function (event) {
+            if (!document.getElementById('galleryModal').classList.contains('hidden')) {
+                if (event.key === "Escape") closeModal();
+                if (event.key === "ArrowLeft") changeSlide(-1);
+                if (event.key === "ArrowRight") changeSlide(1);
+            }
+        });
+
+    </script>
 </body>
 
 </html>
