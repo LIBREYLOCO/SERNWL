@@ -691,10 +691,12 @@
         const slides = [];
 
         for (let i = 0; i < totalPdfSlides; i++) {
-            const slideNumber = String(i).padStart(2, '0');
+            // Keynote export format: pdf_slides.001.jpeg to pdf_slides.012.jpeg
+            // i starts at 0, so we need i + 1
+            const slideNumber = String(i + 1).padStart(3, '0');
             const slideHTML = `
                         <div class="p-4 md:p-8 flex items-center justify-center bg-white">
-                            <img src="pdf_slides/slide_${slideNumber}.png" 
+                            <img src="pdf_slides/pdf_slides.${slideNumber}.jpeg" 
                                  alt="Slide ${i + 1} - Programa B.E. Newland" 
                                  class="w-full h-auto object-contain rounded-lg shadow-sm bg-white"
                                  style="max-height: 85vh;">
