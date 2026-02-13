@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plan Maestro: Campaña S.E.R. Newland</title>
+    <title>Plan Maestro: Campaña B.E. Newland</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -141,7 +141,7 @@
                         class="serif-font gold-text">Strategy Hub</span></span>
             </div>
             <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
-                <a href="#essence" class="nav-link hover:text-[#C5A059] transition">Filosofía S.E.R.</a>
+                <a href="#essence" class="nav-link hover:text-[#C5A059] transition">Filosofía B.E.</a>
                 <a href="#metrics" class="nav-link hover:text-[#C5A059] transition">Diagnóstico</a>
                 <a href="#mechanics" class="nav-link hover:text-[#C5A059] transition">Mecánica</a>
                 <a href="#scripts" class="nav-link hover:text-[#C5A059] transition">Discurso</a>
@@ -154,31 +154,47 @@
         </div>
     </nav>
 
-    <!-- Hero Section: The S.E.R. Concept -->
+    <!-- Hero Section: The B.E. Concept -->
     <header id="essence" class="pt-16 pb-12 bg-[#F9F9F7]">
         <div class="container mx-auto px-6 text-center">
+            <!-- B.E. Coin Logo -->
+            <div class="mb-8 flex justify-center">
+                <div onclick="openLogoModal()"
+                    class="relative w-48 h-48 md:w-56 md:h-56 rounded-full shadow-2xl border-4 border-[#C5A059] overflow-hidden bg-white hover:scale-105 transition-transform duration-500 group cursor-pointer z-10">
+                    <img src="be-logo.jpg" alt="B.E. Medallion" class="w-full h-full object-cover">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-50 group-hover:opacity-75 transition-opacity">
+                    </div>
+                    <!-- Hint -->
+                    <div
+                        class="absolute bottom-4 left-0 w-full text-center text-xs text-nwl-burgundy font-bold opacity-0 group-hover:opacity-100 transition-opacity bg-white/80 py-1">
+                        Clic para Ampliar
+                    </div>
+                </div>
+            </div>
+
             <div
                 class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-[#C5A059] uppercase border border-[#C5A059] rounded-full">
                 Estrategia 2026</div>
             <h1 class="text-4xl md:text-6xl font-bold text-nwl-burgundy mb-6 serif-font">Programa <span
-                    class="gold-text">S.E.R.</span> Newland</h1>
+                    class="gold-text">B.E.</span> Newland</h1>
             <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-12 leading-relaxed">
                 Una iniciativa estratégica para consolidar nuestros grupos en <strong>San Miguel Allende, Corregidora y
                     Milenio</strong> mediante la atracción de perfiles de alto valor.
             </p>
 
             <!-- Interactive Acronym Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <!-- S Card -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- B Card -->
                 <div class="bg-white p-8 rounded-xl card-shadow border-t-4 border-[#C5A059] cursor-pointer group"
-                    onclick="toggleCard('s-desc')">
+                    onclick="toggleCard('b-desc')">
                     <div
                         class="text-6xl font-serif font-bold text-gray-200 group-hover:text-[#C5A059] transition-colors mb-4">
-                        S</div>
-                    <h3 class="text-xl font-bold text-nwl-burgundy mb-2">Selección</h3>
-                    <p id="s-desc" class="text-slate-600 text-sm opacity-100 transition-opacity duration-300">
-                        Buscamos familias que compartan nuestros valores. No es una puerta abierta, es un filtro de
-                        calidad.
+                        B</div>
+                    <h3 class="text-xl font-bold text-nwl-burgundy mb-2">Belong (Pertenencia)</h3>
+                    <p id="b-desc" class="text-slate-600 text-sm opacity-100 transition-opacity duration-300">
+                        Buscamos familias que compartan nuestros valores y se integren a nuestra comunidad. No es una
+                        puerta abierta, es un filtro de identidad.
                     </p>
                 </div>
                 <!-- E Card -->
@@ -187,22 +203,10 @@
                     <div
                         class="text-6xl font-serif font-bold text-gray-200 group-hover:text-nwl-burgundy transition-colors mb-4">
                         E</div>
-                    <h3 class="text-xl font-bold text-nwl-burgundy mb-2">Excelencia</h3>
+                    <h3 class="text-xl font-bold text-nwl-burgundy mb-2">Excel (Excelencia)</h3>
                     <p id="e-desc" class="text-slate-600 text-sm opacity-100 transition-opacity duration-300">
-                        El motivo del beneficio no es la "urgencia", sino mantener el nivel académico y cultural de
-                        nuestros grupos.
-                    </p>
-                </div>
-                <!-- R Card -->
-                <div class="bg-white p-8 rounded-xl card-shadow border-t-4 border-[#C5A059] cursor-pointer group"
-                    onclick="toggleCard('r-desc')">
-                    <div
-                        class="text-6xl font-serif font-bold text-gray-200 group-hover:text-[#C5A059] transition-colors mb-4">
-                        R</div>
-                    <h3 class="text-xl font-bold text-nwl-burgundy mb-2">Reconocimiento</h3>
-                    <p id="r-desc" class="text-slate-600 text-sm opacity-100 transition-opacity duration-300">
-                        El incentivo económico (30% y 10%) se presenta como un premio al mérito, elevando el estatus de
-                        quien lo recibe.
+                        El motivo del beneficio es mantener el nivel académico y cultural. Potenciamos el talento de
+                        nuestros estudiantes.
                     </p>
                 </div>
             </div>
@@ -255,7 +259,7 @@
                         <canvas id="revenueChart"></canvas>
                     </div>
                     <div class="mt-4 text-center text-sm text-slate-500">
-                        El programa <span class="font-bold">S.E.R.</span> convierte espacios vacíos ($0) en activos
+                        El programa <span class="font-bold">B.E.</span> convierte espacios vacíos ($0) en activos
                         productivos (70%).
                     </div>
                 </div>
@@ -267,7 +271,7 @@
     <section id="mechanics" class="py-16 bg-nwl-burgundy text-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold serif-font text-white mb-4">Mecánica de Beneficios</h2>
+                <h2 class="text-3xl font-bold serif-font text-white mb-4">Mecánica B.E. (Belong & Excel)</h2>
                 <p class="text-slate-300">Reglas claras para mantener la exclusividad y el control.</p>
             </div>
 
@@ -288,7 +292,7 @@
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="text-[#C5A059]">✦</span>
-                            <span><strong>Requisito:</strong> Validar perfil "S.E.R." (Selección y Excelencia).</span>
+                            <span><strong>Requisito:</strong> Validar perfil "B.E." (Belong & Excel).</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="text-[#C5A059]">✦</span>
@@ -359,10 +363,10 @@
                             <div id="script-text" class="text-xl leading-relaxed text-slate-700 font-serif italic">
                                 "Bienvenido. La familia Gómez nos ha hablado maravillas de ustedes. Al venir referidos
                                 por ellos, su proceso entra automáticamente bajo el criterio <span
-                                    class="highlight-term">S.E.R. (Selección de Excelencia y Reconocimiento)</span>.
+                                    class="highlight-term">B.E. (Belong & Excel)</span>.
                                 Esto significa que, una vez que validemos el perfil académico de su hijo, el colegio les
                                 otorgará un <span class="highlight-term">Reconocimiento Económico del 30%</span>,
-                                diseñado para familias que suman valor a nuestra comunidad."
+                                diseñado para familias que realmente pertenecen a nuestra comunidad de excelencia."
                             </div>
                         </div>
                     </div>
@@ -372,7 +376,7 @@
                         <h4 class="text-sm font-bold text-slate-800 mb-3">Gatillos Psicológicos Activos:</h4>
                         <div id="script-triggers" class="flex flex-wrap gap-2">
                             <span
-                                class="px-3 py-1 bg-blue-50 text-blue-800 text-xs rounded-full font-semibold">Pertenencia</span>
+                                class="px-3 py-1 bg-blue-50 text-blue-800 text-xs rounded-full font-semibold">Belonging</span>
                             <span
                                 class="px-3 py-1 bg-yellow-50 text-yellow-800 text-xs rounded-full font-semibold">Exclusividad</span>
                             <span
@@ -396,9 +400,8 @@
                     <div class="bg-white max-w-sm mx-auto rounded-lg shadow-lg overflow-hidden border border-gray-200">
                         <div class="bg-nwl-burgundy p-6 text-center relative overflow-hidden">
                             <div class="absolute top-0 left-0 w-full h-2 bg-[#C5A059]"></div>
-                            <h4 class="text-[#C5A059] font-serif text-2xl font-bold mb-1">S.E.R. NEWLAND</h4>
-                            <p class="text-white/60 text-xs tracking-widest uppercase">Selección | Excelencia |
-                                Reconocimiento</p>
+                            <h4 class="text-[#C5A059] font-serif text-2xl font-bold mb-1">PROGRAMA B.E.</h4>
+                            <p class="text-white/60 text-xs tracking-widest uppercase">Belong | Excel</p>
                         </div>
                         <div class="p-6">
                             <p class="text-slate-700 text-sm mb-4"><strong>Familia Newland:</strong> Tienen el
@@ -427,7 +430,7 @@
                         </div>
                         <p class="text-sm text-slate-600 mb-4 leading-relaxed">
                             En Newland, creemos que la calidad de nuestra escuela depende de la calidad de sus familias.
-                            Por eso, hemos activado el programa <strong>S.E.R.</strong>
+                            Por eso, hemos activado el programa <strong>B.E. (Belong & Excel)</strong>.
                         </p>
                         <p class="text-sm text-slate-600 mb-4 leading-relaxed">
                             Queremos que los últimos lugares en <strong>Milenio, Corregidora y SMA</strong> sean
@@ -472,7 +475,7 @@
                         <h4 class="text-lg font-bold text-nwl-burgundy mb-2">Recepción</h4>
                         <p class="text-sm text-slate-600">El Staff recibe al prospecto. <span
                                 class="text-red-500 font-bold">PROHIBIDO</span> decir "descuento". Se menciona "Programa
-                            S.E.R."</p>
+                            B.E."</p>
                     </div>
 
                     <!-- Step 3 -->
@@ -484,7 +487,7 @@
                         </div>
                         <h4 class="text-lg font-bold text-nwl-burgundy mb-2">El Filtro</h4>
                         <p class="text-sm text-slate-600">Breve entrevista de validación. "Perfecto, cumplen con el
-                            perfil de Excelencia".</p>
+                            perfil Belong & Excel".</p>
                     </div>
 
                     <!-- Step 4 -->
@@ -558,7 +561,7 @@
         // Data Configuration for Charts
         // Colors updated for new palette
         const enrollmentData = {
-            labels: ['Alumnos Actuales', 'Oportunidad (S.E.R.)'],
+            labels: ['Alumnos Actuales', 'Oportunidad (B.E.)'],
             datasets: [{
                 data: [240, 103],
                 backgroundColor: ['#5D2A2C', '#C5A059'], // Burgundy for filled, Gold for opportunity
@@ -567,7 +570,7 @@
         };
 
         const revenueData = {
-            labels: ['Lugar Vacío', 'Lugar S.E.R. (-30%)', 'Lugar Full Price'],
+            labels: ['Lugar Vacío', 'Lugar B.E. (-30%)', 'Lugar Full Price'],
             datasets: [{
                 label: 'Ingreso Percibido',
                 data: [0, 70, 100],
@@ -625,7 +628,7 @@
         // Interactive Script Logic
         const scripts = {
             referral: {
-                text: `"Bienvenido. La familia <span class="italic font-normal text-gray-400">[Apellido]</span> nos ha hablado maravillas de ustedes. Al venir referidos por ellos, su proceso entra automáticamente bajo el criterio <span class="highlight-term">S.E.R. (Selección de Excelencia y Reconocimiento)</span>. Esto significa que, una vez que validemos el perfil académico de su hijo, el colegio les otorgará un <span class="highlight-term">Reconocimiento Económico del 30%</span> en la colegiatura, diseñado para familias que suman valor a nuestra comunidad."`,
+                text: `"Bienvenido. La familia <span class="italic font-normal text-gray-400">[Apellido]</span> nos ha hablado maravillas de ustedes. Al venir referidos por ellos, su proceso entra automáticamente bajo el criterio <span class="highlight-term">B.E. (Belong & Excel)</span>. Esto significa que, una vez que validemos el perfil académico de su hijo, el colegio les otorgará un <span class="highlight-term">Reconocimiento Económico del 30%</span> en la colegiatura, diseñado para familias que realmente pertenecen a nuestra comunidad."`,
                 triggers: [
                     { text: "Validación Social", color: "bg-blue-50 text-blue-800" },
                     { text: "Exclusividad", color: "bg-yellow-50 text-yellow-800" },
@@ -633,7 +636,7 @@
                 ]
             },
             walkin: {
-                text: `"Señor/a, le tengo una excelente noticia. Para el grado de su hijo en este campus, Dirección ha activado el protocolo <span class="highlight-term">S.E.R.</span> Como buscamos consolidar este grupo con perfiles de <span class="highlight-term">Excelencia</span>, si su hijo aprueba la evaluación y la entrevista familiar, se hacen acreedores al beneficio de <span class="highlight-term">Reconocimiento</span>, que subsidia el 30% de su colegiatura. Es nuestra forma de invertir en las mejores familias."`,
+                text: `"Señor/a, le tengo una excelente noticia. Para el grado de su hijo en este campus, Dirección ha activado el protocolo <span class="highlight-term">B.E.</span> Como buscamos consolidar este grupo con perfiles de <span class="highlight-term">Excelencia</span> que realmente <span class="highlight-term">Pertenecen (Belong)</span>, si su hijo aprueba la evaluación, se hacen acreedores al beneficio de <span class="highlight-term">Reconocimiento</span>, que subsidia el 30% de su colegiatura."`,
                 triggers: [
                     { text: "Suerte/Oportunidad", color: "bg-purple-50 text-purple-800" },
                     { text: "Escasez", color: "bg-red-50 text-red-800" },
@@ -692,8 +695,8 @@
             const slideHTML = `
                         <div class="p-4 md:p-8 flex items-center justify-center bg-white">
                             <img src="pdf_slides/slide_${slideNumber}.png" 
-                                 alt="Slide ${i + 1} - Programa S.E.R. Newland" 
-                                 class="w-full h-auto object-contain rounded-lg shadow-sm"
+                                 alt="Slide ${i + 1} - Programa B.E. Newland" 
+                                 class="w-full h-auto object-contain rounded-lg shadow-sm bg-white"
                                  style="max-height: 85vh;">
                         </div>
                         `;
@@ -775,6 +778,20 @@
             document.body.style.overflow = 'hidden';
         }
 
+        function openLogoModal() {
+            const container = document.getElementById('modalContent');
+            container.innerHTML = `
+                <div class="p-4 md:p-8 flex flex-col items-center justify-center h-full min-h-[50vh]">
+                    <div class="relative max-w-4xl w-full flex justify-center">
+                        <img src="be-logo.jpg" alt="B.E. Medallion Full Size" class="w-full h-auto max-h-[85vh] object-contain rounded-lg shadow-2xl animate-fadeIn">
+                    </div>
+                     <p class="mt-4 text-white text-center text-sm opacity-80">Medallón B.E. - Belong & Excel</p>
+                </div>
+            `;
+            document.getElementById('galleryModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
         function changeSlide(direction) {
             currentSlideIndex += direction;
             if (currentSlideIndex < 0) currentSlideIndex = totalSlides - 1;
@@ -834,7 +851,7 @@
             new Chart(ctx2, {
                 type: 'bar',
                 data: {
-                    labels: ['Ingreso Actual', 'Potencial S.E.R.'],
+                    labels: ['Alumnos Actuales', 'Oportunidad (B.E.)'],
                     datasets: [{
                         label: 'Millones MXN',
                         data: [25.5, 31.2],
